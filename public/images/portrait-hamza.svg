@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="portraitBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070c18" />
+      <stop offset="50%" stop-color="#0f192d" />
+      <stop offset="100%" stop-color="#03060c" />
+    </linearGradient>
+    <radialGradient id="portraitGlow" cx="50%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="tealRim" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="750" fill="url(#portraitBg)" />
+  <circle cx="300" cy="280" r="240" fill="url(#portraitGlow)" />
+  <circle cx="450" cy="180" r="180" fill="url(#tealRim)" />
+
+  <!-- Abstract Architectural Studio Backdrop -->
+  <g stroke="#1e293b" stroke-width="1.5" opacity="0.4">
+    <line x1="80" y1="0" x2="80" y2="750" />
+    <line x1="520" y1="0" x2="520" y2="750" />
+    <line x1="0" y1="200" x2="600" y2="200" />
+    <line x1="0" y1="560" x2="600" y2="560" />
+  </g>
+
+  <!-- Stylized Cinematic Silhouette -->
+  <g transform="translate(300, 390)">
+    <!-- Shoulders & Torso -->
+    <path
+      d="M -160 360 C -160 210, -120 160, -70 140 L 70 140 C 120 160, 160 210, 160 360 Z"
+      fill="#0c1424"
+      stroke="#1e293b"
+      stroke-width="2"
+    />
+    <!-- Collar & Lapel accents -->
+    <path d="M -70 140 L 0 240 L 70 140" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6" />
+    <!-- Neck -->
+    <rect x="-32" y="70" width="64" height="80" rx="10" fill="#090f1a" />
+    <!-- Head Oval -->
+    <ellipse cx="0" cy="50" rx="70" ry="92" fill="#0a1221" stroke="#334155" stroke-width="2" />
+    <!-- Hair Silhouette -->
+    <path
+      d="M -70 30 C -68 -45, -20 -65, 0 -65 C 25 -65, 68 -45, 70 30 C 60 -15, -60 -15, -70 30 Z"
+      fill="#050811"
+    />
+    <!-- Rim Lighting Amber -->
+    <path
+      d="M -70 50 C -70 -20, -30 -60, 0 -60"
+      fill="none"
+      stroke="#f59e0b"
+      stroke-width="3"
+      opacity="0.8"
+    />
+    <!-- Rim Lighting Teal -->
+    <path
+      d="M 70 50 C 70 -20, 30 -60, 0 -60"
+      fill="none"
+      stroke="#2dd4bf"
+      stroke-width="3"
+      opacity="0.8"
+    />
+  </g>
+
+  <!-- Cinematic Framing Tags -->
+  <rect x="40" y="40" width="180" height="28" rx="14" fill="rgba(245,158,11,0.12)" stroke="#f59e0b" stroke-width="1" />
+  <text x="130" y="58" fill="#fbbf24" font-family="'Space Grotesk', monospace" font-size="11" font-weight="bold" letter-spacing="2" text-anchor="middle">AGENT 01 // CONTEXT</text>
+
+  <text x="40" y="700" fill="#f8fafc" font-family="'Bebas Neue', sans-serif" font-size="32" letter-spacing="2">HAMZA</text>
+  <text x="40" y="722" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="13">AI Engineer &amp; Full-Stack Developer</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050814" />
+      <stop offset="100%" stop-color="#121e33" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#flowGrad)" />
+  <circle cx="500" cy="270" r="160" fill="#f59e0b" fill-opacity="0.1" filter="blur(25px)" />
+  <rect x="50" y="45" width="200" height="28" rx="14" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1" />
+  <text x="150" y="64" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="bold" letter-spacing="1.5" text-anchor="middle">AUTOMATION HUB</text>
+  <text x="50" y="120" fill="#f8fafc" font-family="'Bebas Neue', sans-serif" font-size="36" letter-spacing="1">FLOWPULSE MIDDLEWARE</text>
+  <text x="50" y="150" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="14">Low-latency event streams &amp; webhook pipelines</text>
+  <rect x="260" y="220" width="120" height="70" rx="8" fill="#0d1627" stroke="#334155" stroke-width="1.5" />
+  <text x="320" y="260" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-size="12" text-anchor="middle">n8n Ingress</text>
+  <path d="M 380 255 L 430 255" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 4" />
+  <rect x="430" y="220" width="120" height="70" rx="8" fill="#0d1627" stroke="#f59e0b" stroke-width="1.5" />
+  <text x="490" y="260" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="12" text-anchor="middle">Flow Queue</text>
+  <path d="M 550 255 L 600 255" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="4 4" />
+  <rect x="600" y="220" width="120" height="70" rx="8" fill="#0d1627" stroke="#2dd4bf" stroke-width="1.5" />
+  <text x="660" y="260" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="12" text-anchor="middle">Dispatch</text>
+</svg>

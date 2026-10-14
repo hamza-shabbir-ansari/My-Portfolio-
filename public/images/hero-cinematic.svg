@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="heroGlow" cx="60%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3" />
+      <stop offset="40%" stop-color="#0f766e" stop-opacity="0.2" />
+      <stop offset="80%" stop-color="#03060e" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#03060e" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="lightRay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.25" />
+      <stop offset="50%" stop-color="#14b8a6" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#03060e" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="corePulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="#050811" />
+  <rect width="1200" height="800" fill="url(#heroGlow)" />
+
+  <!-- Diagonal Cinematic Light Rays -->
+  <polygon points="1200,0 800,0 100,800 500,800" fill="url(#lightRay)" />
+  <polygon points="1050,0 650,0 0,800 350,800" fill="url(#lightRay)" opacity="0.6" />
+
+  <!-- Neural Mesh Topology Curves -->
+  <path d="M 0 350 C 350 200, 850 200, 1200 350" fill="none" stroke="#1e293b" stroke-width="2" />
+  <path d="M 0 310 C 350 160, 850 160, 1200 310" fill="none" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 6" />
+  <path d="M 0 270 C 350 120, 850 120, 1200 270" fill="none" stroke="#f59e0b" stroke-width="1" opacity="0.4" />
+
+  <!-- High-Speed Neural Data Streams -->
+  <line x1="120" y1="800" x2="680" y2="460" stroke="#f59e0b" stroke-width="3" opacity="0.8" />
+  <line x1="280" y1="800" x2="720" y2="460" stroke="#2dd4bf" stroke-width="3" opacity="0.8" />
+  <line x1="440" y1="800" x2="760" y2="460" stroke="#38bdf8" stroke-width="2" opacity="0.6" />
+
+  <!-- Core Orchestrator Node in Atmospheric Haze -->
+  <g transform="translate(640, 380)">
+    <!-- Volumetric light cone -->
+    <polygon points="80,40 480,-80 520,160" fill="#fbbf24" opacity="0.18" />
+    <!-- Orchestrator core chassis -->
+    <rect x="0" y="20" width="140" height="80" rx="12" fill="#070c18" stroke="#334155" stroke-width="2" />
+    <circle cx="125" cy="60" r="14" fill="#fbbf24" />
+    <circle cx="125" cy="60" r="26" fill="#fbbf24" opacity="0.25" />
+    <!-- Telemetry Activity Screen -->
+    <rect x="18" y="32" width="36" height="26" rx="4" fill="url(#corePulseGrad)" />
+    <!-- Pulse Ring -->
+    <circle cx="70" cy="60" r="45" fill="none" stroke="#14b8a6" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.5" />
+  </g>
+
+  <!-- Floating HUD & Telemetry Details -->
+  <g opacity="0.75" font-family="'Space Grotesk', monospace" font-size="12">
+    <text x="60" y="100" fill="#f59e0b" letter-spacing="3">INITIALIZATION RUNTIME // 00</text>
+    <text x="60" y="125" fill="#94a3b8">PIPELINE: MULTI-AGENT STATE GRAPH</text>
+    <text x="1140" y="100" fill="#2dd4bf" text-anchor="end" letter-spacing="2">SYS READY: ONLINE</text>
+  </g>
+</svg>

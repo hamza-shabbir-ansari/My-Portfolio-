@@ -1,29 +1,44 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio in Progress</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: #0b0b0f;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    h1 { font-size: 2.5rem; }
-    p { color: #aaa; }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>🚀 Working on My Portfolio</h1>
-    <p>Something awesome is coming soon.</p>
-  </main>
-</body>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050811" />
+    
+    <title>Hamza | AI Engineer &amp; Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Hamza, AI Engineer and Full-Stack Developer based in Karachi, Pakistan. Explore the multi-agent system pipeline across autonomous agents, enterprise RAG search engines, and scalable web applications." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://hamzashabbir.dev/" />
+    <meta property="og:title" content="Hamza | AI Engineer &amp; Full-Stack Developer" />
+    <meta property="og:description" content="Explore the multi-agent pipeline across autonomous multi-agent systems, enterprise RAG search engines, and scalable web platforms." />
+    <meta property="og:image" content="/images/project-omniflow-cover.svg" />
+    <meta property="og:site_name" content="Hamza Portfolio" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://hamzashabbir.dev/" />
+    <meta name="twitter:title" content="Hamza | AI Engineer &amp; Full-Stack Developer" />
+    <meta name="twitter:description" content="Explore the multi-agent pipeline across autonomous multi-agent systems, enterprise RAG search engines, and scalable web platforms." />
+    <meta name="twitter:image" content="/images/project-omniflow-cover.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-[#050811] text-cream-100 antialiased selection:bg-[#f59e0b] selection:text-[#020409]">
+    <!-- Static Netlify Form for Build Detection -->
+    <form name="agent-task-intake" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <select name="projectType"></select>
+      <textarea name="message"></textarea>
+    </form>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
