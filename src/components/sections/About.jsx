@@ -5,14 +5,14 @@ import { pipelineData, memoryNodesData } from '../../data/timeline';
 import { AgentLabel } from '../agents/AgentLabel';
 import { RevealImage } from '../ui/RevealImage';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { 
-  Cpu, 
-  Layers, 
-  Workflow, 
-  MapPin, 
-  Calendar, 
-  Sparkles, 
-  CheckCircle2, 
+import {
+  Cpu,
+  Layers,
+  Workflow,
+  MapPin,
+  Calendar,
+  Sparkles,
+  CheckCircle2,
   Network
 } from 'lucide-react';
 
@@ -22,6 +22,7 @@ export const About = () => {
   const timelineRef = useRef(null);
   const timelineSvgPathRef = useRef(null);
   const countersRef = useRef(null);
+  const quickFactsRef = useRef(null);
   const reducedMotion = useReducedMotion();
 
   // State for animated counters (defaults to target numbers as safety fallback)
@@ -36,6 +37,30 @@ export const About = () => {
     if (!el) return;
 
     const ctx = gsap.context(() => {
+      // 0. Quick Scan Cards - Clean, smooth show & hide with reversible ScrollTrigger
+      const quickCards = quickFactsRef.current?.querySelectorAll('.quick-fact-card');
+      if (quickCards && quickCards.length) {
+        gsap.fromTo(
+          quickCards,
+          {
+            y: 22,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: quickFactsRef.current,
+              start: 'top 85%',
+              toggleActions: 'play reverse play reverse',
+            },
+          }
+        );
+      }
+
       // 1. Scrubbed word-by-word highlight text reveal
       const storyWords = storyParagraphRef.current?.querySelectorAll('.story-word');
       if (storyWords && storyWords.length) {
@@ -221,11 +246,14 @@ export const About = () => {
       </div>
 
       {/* Recruiter Quick Scan Row */}
-      <div className="mb-16 grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4">
+      <div
+        ref={quickFactsRef}
+        className="mb-16 grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4"
+      >
         {profileData.quickFacts.map((fact, idx) => (
           <div
             key={`fact-${idx}`}
-            className="p-3.5 sm:p-4 rounded-xl bg-[#070c18]/80 border border-white/10 hover:border-[#fbbf24]/30 transition-colors backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+            className="quick-fact-card p-3.5 sm:p-4 rounded-xl bg-[#070c18]/80 border border-white/10 hover:border-[#fbbf24]/40 transition-colors backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1"
           >
             <span className="font-mono text-[10px] uppercase tracking-wider text-[#fbbf24] block mb-1">
               {fact.label}
@@ -417,9 +445,8 @@ export const About = () => {
               return (
                 <div
                   key={`node-${idx}`}
-                  className={`memory-node-card md:flex items-center ${
-                    isEven ? 'md:flex-row-reverse' : ''
-                  }`}
+                  className={`memory-node-card md:flex items-center ${isEven ? 'md:flex-row-reverse' : ''
+                    }`}
                 >
                   <div className="md:w-1/2 md:px-8">
                     <div className="p-5 sm:p-6 rounded-2xl bg-[#070c18]/90 border border-white/10 hover:border-[#fbbf24]/40 transition-all backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.5)]">

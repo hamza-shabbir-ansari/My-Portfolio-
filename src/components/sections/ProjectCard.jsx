@@ -198,7 +198,7 @@ export const ProjectCard = ({ project, index, onOpenModal }) => {
             <Magnetic strength={0.2}>
               <button
                 onClick={() => onOpenModal(project)}
-                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs uppercase font-bold tracking-wider transition-all cursor-pointer flex items-center gap-2 shadow-[0_0_12px_rgba(245,158,11,0.3)]"
+                className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs uppercase font-bold tracking-wider transition-all cursor-pointer flex items-center gap-2 shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
               >
                 <span>Explore Project</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

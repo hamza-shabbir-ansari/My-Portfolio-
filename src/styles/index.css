@@ -11,15 +11,15 @@
   --grad-soft: linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, rgba(251, 191, 36, 0.12) 50%, rgba(20, 184, 166, 0.12) 100%);
   --glow: 0 0 25px rgba(245, 158, 11, 0.35), 0 0 50px rgba(251, 191, 36, 0.18);
   --glow-strong: 0 0 35px rgba(245, 158, 11, 0.55), 0 0 70px rgba(20, 184, 166, 0.3);
-  
+
   --bg: #050811;
   --bg-dark: #020409;
   --surface: #0a101d;
   --card: #0e1626;
-  
+
   --border: rgba(255, 255, 255, 0.08);
   --border-glow: rgba(245, 158, 11, 0.3);
-  
+
   --text: #f7f4ed;
   --muted: #94a3b8;
 
@@ -129,6 +129,7 @@ body {
 .border-gradient {
   position: relative;
 }
+
 .border-gradient::before {
   content: '';
   position: absolute;
@@ -145,11 +146,12 @@ body {
 .btn-gradient {
   background: var(--grad-main);
   color: #03060c;
-  box-shadow: var(--glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .btn-gradient:hover {
-  box-shadow: var(--glow-strong);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
   transform: translateY(-1px);
 }
 
@@ -164,6 +166,7 @@ body {
 .chip-gradient {
   transition: all 0.25s ease;
 }
+
 .chip-gradient:hover {
   border-color: var(--c1);
   color: #ffffff;
@@ -173,6 +176,7 @@ body {
 .link-gradient-underline {
   position: relative;
 }
+
 .link-gradient-underline::after {
   content: '';
   position: absolute;
@@ -185,6 +189,7 @@ body {
   transform-origin: right;
   transition: transform 0.3s ease;
 }
+
 .link-gradient-underline:hover::after {
   transform: scaleX(1);
   transform-origin: left;
@@ -284,4 +289,3 @@ body {
   display: block;
   transform-origin: bottom left;
 }
-

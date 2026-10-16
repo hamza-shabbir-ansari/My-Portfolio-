@@ -16,8 +16,14 @@ import { Testimonials } from './components/sections/Testimonials';
 import { Contact } from './components/sections/Contact';
 
 export const App = () => {
-  const [isHeroReady, setIsHeroReady] = useState(true);
+  const [isHeroReady, setIsHeroReady] = useState(false);
   const [isTopNavVisible, setIsTopNavVisible] = useState(true);
+
+  // Safety fallback to guarantee hero is always visible even if preloader is skipped
+  useEffect(() => {
+    const fallback = setTimeout(() => setIsHeroReady(true), 1200);
+    return () => clearTimeout(fallback);
+  }, []);
 
   useEffect(() => {
     // 1. Initial refresh

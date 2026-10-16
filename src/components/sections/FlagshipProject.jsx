@@ -305,7 +305,7 @@ export const FlagshipProject = ({ project, onOpenModal }) => {
                 <Magnetic strength={0.25}>
                   <button
                     onClick={() => onOpenModal(project)}
-                    className="px-4 py-2 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs uppercase font-bold tracking-wider transition-all cursor-pointer shadow-[0_0_15px_rgba(245,158,11,0.4)]"
+                    className="px-4 py-2 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs uppercase font-bold tracking-wider transition-all cursor-pointer shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
                   >
                     View Case Study
                   </button>

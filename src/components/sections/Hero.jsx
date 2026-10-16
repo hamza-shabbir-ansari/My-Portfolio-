@@ -6,7 +6,7 @@ import { AgentLabel } from '../agents/AgentLabel';
 import { Magnetic } from '../ui/Magnetic';
 import { scrollToSection } from '../../hooks/useLenis';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
-import { ArrowDown, ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 
 export const Hero = ({ isReady = true }) => {
   const heroRef = useRef(null);
@@ -16,8 +16,8 @@ export const Hero = ({ isReady = true }) => {
   const roleBadgeRef = useRef(null);
   const taglineRef = useRef(null);
   const ctaButtonsRef = useRef(null);
-  const imageWrapperRef = useRef(null);
-  const scrollCueRef = useRef(null);
+  const imageContainerRef = useRef(null);
+  const imageParallaxRef = useRef(null);
   const reducedMotion = useReducedMotion();
 
   const heroStep = pipelineData[0];
@@ -27,120 +27,182 @@ export const Hero = ({ isReady = true }) => {
     if (!heroEl) return;
 
     const ctx = gsap.context(() => {
-      // 1. Entrance animation timeline (smooth, crisp & cinematic)
       const headlineLines = headlineMasksRef.current.filter(Boolean);
+      const buttons = ctaButtonsRef.current?.querySelectorAll('.hero-btn-item') || [];
+
+      // Initial State
+      gsap.set(
+        [
+          badgeRef.current,
+          roleBadgeRef.current,
+          taglineRef.current,
+          imageContainerRef.current,
+          ...buttons,
+        ],
+        {
+          opacity: 0,
+          y: 28,
+        }
+      );
+      if (imageContainerRef.current) {
+        gsap.set(imageContainerRef.current, { opacity: 0, y: 40 });
+      }
+      if (headlineLines.length) {
+        gsap.set(headlineLines, { yPercent: 125, opacity: 0 });
+      }
+
+      // If reduced motion is requested
+      if (reducedMotion) {
+        gsap.set(
+          [
+            badgeRef.current,
+            roleBadgeRef.current,
+            taglineRef.current,
+            imageContainerRef.current,
+            ...buttons,
+          ],
+          {
+            opacity: 1,
+            y: 0,
+          }
+        );
+        if (headlineLines.length) {
+          gsap.set(headlineLines, { yPercent: 0, opacity: 1 });
+        }
+        return;
+      }
+
+      if (!isReady) return;
+
+      // Measured, Smooth & Professional Cascading Entrance Timeline
       const introTl = gsap.timeline({
-        delay: 0.1,
+        paused: true,
         defaults: { ease: 'power3.out' },
       });
 
-      // A. Agent Label Badge
+      // Step 1: Agent Label Badge
       if (badgeRef.current) {
         introTl.fromTo(
           badgeRef.current,
-          { y: -18, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.55 }
+          { y: -16, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }
         );
       }
 
-      // B. Giant 3-Line Headline reveal
-      if (headlineLines.length) {
+      // Step 2: Line 1 - "I build"
+      if (headlineLines[0]) {
         introTl.fromTo(
-          headlineLines,
-          { yPercent: 105, opacity: 0 },
-          {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.12,
-            ease: 'power4.out',
-          },
+          headlineLines[0],
+          { yPercent: 110, opacity: 0 },
+          { yPercent: 0, opacity: 1, duration: 0.95, ease: 'power3.out' },
           '-=0.35'
         );
       }
 
-      // C. Role pill badge ("AI Engineer & Full-Stack Developer")
+      // Step 3: Line 2 - "intelligent"
+      if (headlineLines[1]) {
+        introTl.fromTo(
+          headlineLines[1],
+          { yPercent: 110, opacity: 0 },
+          { yPercent: 0, opacity: 1, duration: 0.95, ease: 'power3.out' },
+          '-=0.75'
+        );
+      }
+
+      // Step 4: Line 3 - "things."
+      if (headlineLines[2]) {
+        introTl.fromTo(
+          headlineLines[2],
+          { yPercent: 110, opacity: 0 },
+          { yPercent: 0, opacity: 1, duration: 0.95, ease: 'power3.out' },
+          '-=0.75'
+        );
+      }
+
+      // Step 5: Giant Background Hero Image Entrance
+      if (imageContainerRef.current) {
+        introTl.fromTo(
+          imageContainerRef.current,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
+          '-=0.85'
+        );
+      }
+
+      // Step 6: Role Pill ("AI Engineer & Full-Stack Developer")
       if (roleBadgeRef.current) {
         introTl.fromTo(
           roleBadgeRef.current,
-          { y: 18, opacity: 0, scale: 0.94 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.55,
-            ease: 'back.out(1.5)',
-          },
-          '-=0.45'
+          { y: 16, opacity: 0, scale: 0.96 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.75, ease: 'power3.out' },
+          '-=0.65'
         );
       }
 
-      // D. Tagline & Short Intro paragraph text
+      // Step 7: Bio / Description text paragraph
       if (taglineRef.current) {
         introTl.fromTo(
           taglineRef.current,
-          { y: 22, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.65,
-            ease: 'power2.out',
-          },
-          '-=0.35'
+          { y: 18, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+          '-=0.6'
         );
       }
 
-      // E. CTA action buttons entrance
-      if (ctaButtonsRef.current) {
+      // Step 8: Action Buttons ("View Projects" & "Contact Me")
+      if (buttons && buttons.length) {
         introTl.fromTo(
-          ctaButtonsRef.current.querySelectorAll('.hero-btn-item'),
-          { y: 20, opacity: 0, scale: 0.95 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.55,
-            stagger: 0.1,
-            ease: 'power3.out',
-          },
-          '-=0.45'
+          buttons,
+          { y: 18, opacity: 0, scale: 0.96 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.7, stagger: 0.12, ease: 'power3.out' },
+          '-=0.55'
         );
       }
 
-      // F. Right visual image card
-      if (imageWrapperRef.current) {
-        introTl.fromTo(
-          imageWrapperRef.current,
-          { scale: 0.92, opacity: 0, y: 30 },
-          {
-            scale: 1,
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: 'power3.out',
-          },
-          '-=0.8'
-        );
+      introTl.play();
+
+      // Only animate on mouse movement (no idle/self-floating loop, strictly professional)
+      if (imageParallaxRef.current) {
+        const xTo = gsap.quickTo(imageParallaxRef.current, 'x', {
+          duration: 1.0,
+          ease: 'power2.out',
+        });
+        const yTo = gsap.quickTo(imageParallaxRef.current, 'y', {
+          duration: 1.0,
+          ease: 'power2.out',
+        });
+
+        const handleMouseMove = (e) => {
+          const { clientX, clientY } = e;
+          const { innerWidth, innerHeight } = window;
+          const x = (clientX / innerWidth - 0.5) * 26;
+          const y = (clientY / innerHeight - 0.5) * 26;
+          xTo(x);
+          yTo(y);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+          window.removeEventListener('mousemove', handleMouseMove);
+        };
       }
 
-      // 2. Parallax scroll effect
+      // Subtle, natural Parallax on scroll
       gsap.to(contentRef.current, {
-        yPercent: -20,
-        opacity: 0.18,
+        yPercent: -6,
+        opacity: 0.75,
         ease: 'none',
         scrollTrigger: {
           trigger: heroEl,
           start: 'top top',
           end: 'bottom top',
-          scrub: 0.8,
+          scrub: 1,
         },
       });
 
-      // 3. Ken Burns subtle zoom on hero graphic
-      if (imageWrapperRef.current) {
-        gsap.to(imageWrapperRef.current.querySelector('img'), {
-          scale: 1.1,
-          yPercent: 5,
+      if (imageContainerRef.current) {
+        gsap.to(imageContainerRef.current, {
+          yPercent: -8,
           ease: 'none',
           scrollTrigger: {
             trigger: heroEl,
@@ -150,34 +212,50 @@ export const Hero = ({ isReady = true }) => {
           },
         });
       }
-
-      // 4. Bobbing scroll cue
-      if (scrollCueRef.current) {
-        gsap.to(scrollCueRef.current, {
-          y: 7,
-          duration: 1.4,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-        });
-      }
     }, heroRef);
 
     return () => ctx.revert();
-  }, [isReady]);
+  }, [isReady, reducedMotion]);
 
   return (
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen flex flex-col justify-center section-container overflow-hidden pt-24 pb-16"
+      className="relative min-h-[95vh] flex flex-col justify-center overflow-visible pt-28 pb-16 lg:pt-32 lg:pb-24"
     >
+      {/* Ambient Backlight Behind Giant Image */}
       <div
-        ref={contentRef}
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center will-change-transform"
+        className="absolute right-0 xl:right-[4%] top-[8%] w-[550px] h-[550px] lg:w-[750px] lg:h-[750px] rounded-full bg-gradient-to-tr from-amber-500/12 via-teal-500/8 to-transparent blur-3xl pointer-events-none z-0 opacity-60"
+        aria-hidden="true"
+      />
+
+      {/* Giant Background Hero Image extending into next section */}
+      <div
+        ref={imageContainerRef}
+        className="absolute right-[-6%] sm:right-[-2%] md:right-0 xl:right-[2%] 2xl:right-[5%] top-[6%] sm:top-[4%] lg:top-[2%] z-10 pointer-events-none select-none will-change-transform flex justify-end"
       >
-        {/* Left Column: Agent Badge & Headline */}
-        <div className="lg:col-span-7 flex flex-col items-start">
+        <div ref={imageParallaxRef} className="relative will-change-transform">
+          <img
+            src="/images/hero-hamza.png"
+            alt="Hamza - AI Engineer & Full-Stack Developer"
+            className="h-[680px] sm:h-[840px] md:h-[980px] lg:h-[1180px] xl:h-[1300px] 2xl:h-[1420px] w-auto max-w-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] opacity-30 sm:opacity-45 lg:opacity-100"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)',
+              maskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)',
+            }}
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      {/* Foreground Content Container (Z-20, Large Bold Headline, Accessible) */}
+      <div className="section-container relative z-20 pointer-events-none">
+        <div
+          ref={contentRef}
+          className="max-w-3xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl flex flex-col items-start will-change-transform pointer-events-auto"
+        >
+          {/* Agent Label Badge */}
           <div ref={badgeRef} className="mb-6">
             <AgentLabel
               agent={heroStep.agentKey || 'SYSTEM / 00'}
@@ -189,8 +267,8 @@ export const Hero = ({ isReady = true }) => {
 
           {/* Giant Headline with Line Mask Reveal */}
           <div className="overflow-visible w-full">
-            <h1 className="font-display-fluid text-cream-50 uppercase tracking-tight leading-[0.98] pb-1">
-              <span className="block overflow-hidden py-0.5">
+            <h1 className="font-display uppercase tracking-[0.025em] leading-[0.98] text-[clamp(3.85rem,10vw,10.5rem)] text-cream-50 pb-1">
+              <span className="block overflow-hidden py-1 sm:py-1.5">
                 <span
                   ref={(el) => (headlineMasksRef.current[0] = el)}
                   className="block will-change-transform"
@@ -198,7 +276,7 @@ export const Hero = ({ isReady = true }) => {
                   I build
                 </span>
               </span>
-              <span className="block overflow-hidden py-0.5">
+              <span className="block overflow-hidden py-1 sm:py-1.5">
                 <span
                   ref={(el) => (headlineMasksRef.current[1] = el)}
                   className="inline-block will-change-transform font-bold text-transparent bg-clip-text"
@@ -213,7 +291,7 @@ export const Hero = ({ isReady = true }) => {
                   intelligent
                 </span>
               </span>
-              <span className="block overflow-hidden py-0.5">
+              <span className="block overflow-hidden py-1 sm:py-1.5">
                 <span
                   ref={(el) => (headlineMasksRef.current[2] = el)}
                   className="block will-change-transform text-cream-50"
@@ -228,14 +306,14 @@ export const Hero = ({ isReady = true }) => {
           <div className="mt-6">
             <div
               ref={roleBadgeRef}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-amber-400/30 text-[#fbbf24] font-mono text-xs sm:text-sm uppercase tracking-wider font-semibold shadow-[0_0_15px_rgba(245,158,11,0.15)]"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-amber-400/30 text-[#fbbf24] font-mono text-xs sm:text-sm uppercase tracking-wider font-semibold shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-[#fbbf24]" />
               <span>{profileData.role}</span>
             </div>
             <p
               ref={taglineRef}
-              className="font-body-lg text-cream-muted max-w-xl mt-4 leading-relaxed"
+              className="font-body-lg text-cream-muted max-w-xl lg:max-w-2xl mt-4 leading-relaxed"
             >
               {profileData.tagline} {profileData.shortIntro}
             </p>
@@ -247,7 +325,7 @@ export const Hero = ({ isReady = true }) => {
               <Magnetic strength={0.3}>
                 <button
                   onClick={() => scrollToSection('projects')}
-                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#06b6d4] text-[#02050a] font-mono text-xs sm:text-sm uppercase font-extrabold tracking-widest shadow-[0_0_25px_rgba(245,158,11,0.55),0_0_15px_rgba(6,182,212,0.35)] hover:shadow-[0_0_35px_rgba(245,158,11,0.85),0_0_25px_rgba(6,182,212,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-2 border border-amber-300/40"
+                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#06b6d4] text-[#02050a] font-mono text-xs sm:text-sm uppercase font-extrabold tracking-widest shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer flex items-center gap-2 border border-amber-300/40"
                 >
                   <span>View Projects</span>
                   <ArrowUpRight className="w-4 h-4 stroke-[3]" />
@@ -259,7 +337,7 @@ export const Hero = ({ isReady = true }) => {
               <Magnetic strength={0.25}>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="px-7 py-3.5 rounded-full bg-[#0a101d]/90 hover:bg-white/10 border border-white/15 hover:border-amber-400/50 text-cream-100 font-mono text-xs sm:text-sm uppercase font-semibold tracking-wider transition-all duration-300 cursor-pointer hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+                  className="px-7 py-3.5 rounded-full bg-[#0a101d]/90 hover:bg-white/10 border border-white/15 hover:border-amber-400/50 text-cream-100 font-mono text-xs sm:text-sm uppercase font-semibold tracking-wider transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 shadow-sm"
                 >
                   Contact Me
                 </button>
@@ -267,60 +345,6 @@ export const Hero = ({ isReady = true }) => {
             </div>
           </div>
         </div>
-
-        {/* Right Column: Cinematic Frame with Ambient Light */}
-        <div className="lg:col-span-5 flex justify-center">
-          <div
-            ref={imageWrapperRef}
-            className="hero-fade-in relative w-full max-w-[460px] aspect-[4/5] rounded-2xl overflow-hidden bg-[#070c18] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(245,158,11,0.15)]"
-          >
-            {/* Ambient Radial Gradient Aura */}
-            <div
-              className="absolute inset-0 pointer-events-none z-10 opacity-70"
-              style={{
-                background:
-                  'radial-gradient(circle at 75% 25%, rgba(251, 191, 36, 0.2) 0%, transparent 60%)',
-              }}
-            />
-
-            <img
-              src="/images/hero-cinematic.svg"
-              alt="Hamza cinematic visual terminal"
-              className="w-full h-full object-cover object-center will-change-transform scale-100 transition-transform duration-1000 ease-out"
-              loading="eager"
-            />
-
-            {/* Bottom Telemetry Card overlay */}
-            <div className="absolute bottom-4 left-4 right-4 z-20 p-3.5 rounded-xl bg-[#03060e]/85 backdrop-blur-md border border-white/10 flex items-center justify-between">
-              <div>
-                <span className="font-mono text-[10px] text-[#fbbf24] uppercase tracking-wider block">
-                  Core Runtime
-                </span>
-                <span className="font-display text-sm tracking-wide text-cream-50 uppercase">
-                  Karachi • All Agents Nominal
-                </span>
-              </div>
-              <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#14b8a6] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#14b8a6]" />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Cue at Bottom */}
-      <div
-        ref={scrollCueRef}
-        className="hero-fade-in absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 cursor-pointer pointer-events-auto"
-        onClick={() => scrollToSection('about')}
-        role="button"
-        tabIndex={0}
-      >
-        <span className="font-mono text-[11px] uppercase tracking-widest text-cream-muted hover:text-[#fbbf24] transition-colors">
-          Scroll to run the pipeline
-        </span>
-        <ArrowDown className="w-3.5 h-3.5 text-[#fbbf24]" />
       </div>
     </section>
   );

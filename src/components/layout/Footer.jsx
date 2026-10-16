@@ -124,7 +124,7 @@ export const Footer = () => {
           <Magnetic strength={0.3}>
             <button
               onClick={() => scrollToSection('hero')}
-              className="group px-5 py-2.5 rounded-full bg-[#070c18] border border-white/15 hover:border-[#fbbf24] text-cream-100 font-mono text-xs uppercase font-semibold flex items-center gap-2.5 transition-all shadow-[0_0_15px_rgba(245,158,11,0.2)] hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] cursor-pointer"
+              className="group px-5 py-2.5 rounded-full bg-[#070c18] border border-white/15 hover:border-[#fbbf24] text-cream-100 font-mono text-xs uppercase font-semibold flex items-center gap-2.5 transition-all shadow-sm hover:shadow-md hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>Initialize Pipeline</span>
               <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#14b8a6] flex items-center justify-center text-[#03060c] group-hover:-translate-y-1 transition-transform">

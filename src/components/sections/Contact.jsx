@@ -367,7 +367,7 @@ export const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs sm:text-sm uppercase font-bold tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50"
+                      className="px-7 py-3.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs sm:text-sm uppercase font-bold tracking-widest shadow-md hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2 transition-all cursor-pointer disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <>

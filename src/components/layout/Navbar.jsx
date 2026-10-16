@@ -128,13 +128,11 @@ export const Navbar = ({ onVisibilityChange }) => {
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-40 px-5 sm:px-8 py-3.5 transition-all duration-300 ${
-          isVisible ? 'translate-y-0' : '-translate-y-full'
-        } ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-40 px-5 sm:px-8 py-3.5 transition-all duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+          } ${isScrolled
             ? 'bg-[#03060e]/85 backdrop-blur-md border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.6)]'
             : 'bg-transparent border-b border-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Brand Name: HAMZA SHABBIR */}
@@ -157,11 +155,10 @@ export const Navbar = ({ onVisibilityChange }) => {
                 <button
                   key={step.id}
                   onClick={() => handleNavClick(step.id)}
-                  className={`relative px-4 py-1.5 rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer ${
-                    isActive
-                      ? 'text-cream-50 font-semibold bg-white/10 shadow-[0_0_14px_rgba(245,158,11,0.25)]'
-                      : 'text-cream-muted hover:text-cream-50 hover:bg-white/5'
-                  }`}
+                  className={`relative px-4 py-1.5 rounded-full font-mono text-xs tracking-wider uppercase transition-all duration-300 cursor-pointer ${isActive
+                    ? 'text-cream-50 font-semibold bg-white/10 shadow-[0_0_14px_rgba(245,158,11,0.25)]'
+                    : 'text-cream-muted hover:text-cream-50 hover:bg-white/5'
+                    }`}
                 >
                   {step.navLabel}
                   {isActive && (
@@ -177,7 +174,7 @@ export const Navbar = ({ onVisibilityChange }) => {
             <Magnetic strength={0.25}>
               <button
                 onClick={() => handleNavClick('contact')}
-                className="group relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#06b6d4] text-[#02050a] font-mono text-xs uppercase font-extrabold tracking-widest shadow-[0_0_25px_rgba(245,158,11,0.65),0_0_15px_rgba(6,182,212,0.45)] hover:shadow-[0_0_35px_rgba(245,158,11,0.9),0_0_25px_rgba(6,182,212,0.7)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-amber-300/40"
+                className="group relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#06b6d4] text-[#02050a] font-mono text-xs uppercase font-extrabold tracking-widest shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-amber-300/40"
               >
                 <span className="relative z-10 flex items-center gap-1.5 font-bold">
                   <span>Hire Me</span>
@@ -249,7 +246,7 @@ export const Navbar = ({ onVisibilityChange }) => {
           </div>
           <button
             onClick={() => handleNavClick('contact')}
-            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#06b6d4] text-[#03060c] font-mono text-xs uppercase font-extrabold tracking-wider shadow-[0_0_20px_rgba(245,158,11,0.6)]"
+            className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#06b6d4] text-[#03060c] font-mono text-xs uppercase font-extrabold tracking-wider shadow-md hover:shadow-lg active:scale-95 transition-all"
           >
             Hire Me
           </button>
