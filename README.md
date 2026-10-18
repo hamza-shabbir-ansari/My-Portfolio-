@@ -45,7 +45,7 @@ All copy, profile information, project dossiers, credentials, and testimonials a
 - **Images Directory**: `public/images/`
   - Flagship cover: `public/images/project-omniflow-cover.svg` (or `.webp` / `.png`)
   - Project covers: `project-cognitive-cover.svg`, `project-flowpulse-cover.svg`, `project-apex-cover.svg`
-  - Portrait image: `public/images/portrait-hamza.svg`
+  - Interactive HUD: Agent Runtime & DAG HUD (replaces static portrait image)
   - Certificate visuals: `cert-agentic.svg`, `cert-genai.svg`, `cert-aptech.svg`, `cert-backend.svg`
   - Avatar images: `avatar-1.svg`, `avatar-2.svg`, `avatar-3.svg`
 - **Videos Directory**: `public/videos/`
