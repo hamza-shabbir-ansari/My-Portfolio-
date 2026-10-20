@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { pipelineData } from '../../data/timeline';
 import { profileData } from '../../data/profile';
 import { AgentLabel } from '../agents/AgentLabel';
@@ -8,10 +8,11 @@ import {
   Mail, 
   Linkedin, 
   Github, 
+  ChevronDown,
+  Check,
   ExternalLink, 
   CheckCircle2, 
   Terminal,
-  Layers,
   Sparkles
 } from 'lucide-react';
 
@@ -19,10 +20,13 @@ export const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'Autonomous Multi-Agent System',
+    projectType: 'AI Agents',
     message: '',
     botField: '',
   });
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,13 +34,56 @@ export const Contact = () => {
 
   const contactStep = pipelineData.find((s) => s.id === 'contact') || pipelineData[5];
 
-  const projectTypes = [
-    'Autonomous Multi-Agent System (LangGraph / CrewAI)',
-    'Production RAG & Vector Search (ChromaDB / LangChain)',
-    'Full-Stack Web Application (React / Next.js / FastAPI)',
-    'Workflow Automation & Event Queues (n8n / APIs)',
-    'Engineering Role / Consultation'
+  const serviceOptions = [
+    {
+      value: 'AI Agents',
+      title: 'AI Agents',
+      desc: 'Autonomous multi-agent architectures & stateful workflows',
+      dotColor: 'bg-[#14b8a6]',
+      badgeText: 'AGENTIC'
+    },
+    {
+      value: 'Automation',
+      title: 'Automation',
+      desc: 'Event-driven pipelines, API bridges & automated workflows',
+      dotColor: 'bg-[#f59e0b]',
+      badgeText: 'PIPELINE'
+    },
+    {
+      value: 'Full Stack',
+      title: 'Full Stack',
+      desc: 'Modern reactive web applications & high-throughput backends',
+      dotColor: 'bg-[#2dd4bf]',
+      badgeText: 'SYSTEMS'
+    },
+    {
+      value: 'Consulting',
+      title: 'Consulting',
+      desc: 'Architecture advisory, system reviews & strategic planning',
+      dotColor: 'bg-[#fbbf24]',
+      badgeText: 'ADVISORY'
+    },
+    {
+      value: 'Other',
+      title: 'Other',
+      desc: 'Custom project scopes, technical inquiries & partnerships',
+      dotColor: 'bg-slate-400',
+      badgeText: 'GENERAL'
+    }
   ];
+
+  // Close custom dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedOption = serviceOptions.find((opt) => opt.value === formData.projectType) || serviceOptions[0];
 
   const validate = () => {
     const errs = {};
@@ -90,7 +137,7 @@ export const Contact = () => {
     setFormData({
       name: '',
       email: '',
-      projectType: 'Autonomous Multi-Agent System',
+      projectType: 'AI Agents',
       message: '',
       botField: '',
     });
@@ -121,8 +168,9 @@ export const Contact = () => {
               <span>Available for freelance and engineering roles</span>
             </div>
 
-            <h2 className="font-display-fluid text-cream-50 uppercase tracking-tight leading-[0.95] mb-4">
-              Give me a task. I will handle the rest.
+            <h2 className="font-display-fluid uppercase tracking-tight leading-[0.95] mb-4">
+              <span className="text-cream-50">Give me a task. </span>
+              <span className="text-gradient">I will handle the rest.</span>
             </h2>
 
             <p className="font-body-lg text-cream-muted leading-relaxed">
@@ -136,17 +184,19 @@ export const Contact = () => {
               Direct Communication Channels
             </span>
 
+            {/* Email */}
             <a
-              href="mailto:contact@hamzashabbir.dev"
+              href={`mailto:${profileData.socials.email}`}
               className="p-3.5 rounded-xl bg-[#070c18] border border-white/10 hover:border-[#fbbf24]/40 flex items-center justify-between text-cream-100 hover:text-[#fbbf24] transition-all group"
             >
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#f59e0b]" />
-                <span className="font-mono text-xs">contact@hamzashabbir.dev</span>
+                <span className="font-mono text-xs">{profileData.socials.email}</span>
               </div>
               <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
             </a>
 
+            {/* LinkedIn & GitHub */}
             <div className="grid grid-cols-2 gap-3">
               <a
                 href={profileData.socials.linkedin}
@@ -175,20 +225,22 @@ export const Contact = () => {
               </a>
             </div>
 
+            {/* WhatsApp, Upwork, Fiverr */}
             <div className="grid grid-cols-3 gap-3">
               <a
-                href="https://wa.me/923000000000"
+                href={profileData.socials.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-[#070c18] border border-white/10 hover:border-[#fbbf24]/40 text-center font-mono text-xs text-cream-muted hover:text-emerald-400 transition-colors"
+                className="p-3.5 rounded-xl bg-[#070c18] border border-emerald-500/30 hover:border-emerald-400/60 text-center font-mono text-xs text-emerald-400 hover:text-emerald-300 transition-all flex items-center justify-center gap-1.5"
               >
-                WhatsApp
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>WhatsApp</span>
               </a>
               <a
                 href="https://upwork.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-[#070c18] border border-white/10 hover:border-[#fbbf24]/40 text-center font-mono text-xs text-cream-muted hover:text-[#fbbf24] transition-colors"
+                className="p-3.5 rounded-xl bg-[#070c18] border border-white/10 hover:border-[#fbbf24]/40 text-center font-mono text-xs text-cream-muted hover:text-[#fbbf24] transition-colors flex items-center justify-center"
               >
                 Upwork
               </a>
@@ -196,7 +248,7 @@ export const Contact = () => {
                 href="https://fiverr.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-[#070c18] border border-white/10 hover:border-[#fbbf24]/40 text-center font-mono text-xs text-cream-muted hover:text-[#2dd4bf] transition-colors"
+                className="p-3.5 rounded-xl bg-[#070c18] border border-white/10 hover:border-[#2dd4bf]/40 text-center font-mono text-xs text-cream-muted hover:text-[#2dd4bf] transition-colors flex items-center justify-center"
               >
                 Fiverr
               </a>
@@ -206,7 +258,7 @@ export const Contact = () => {
 
         {/* Right Column: Prompt-Style Task Intake Form */}
         <div className="lg:col-span-7">
-          <div className="relative rounded-3xl bg-[#070c18]/90 border border-white/10 p-6 sm:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(245,158,11,0.1)] overflow-hidden">
+          <div className="relative rounded-3xl bg-[#070c18]/90 border border-white/10 p-6 sm:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_35px_rgba(245,158,11,0.1)]">
             {/* Top Prompt Header */}
             <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
               <div className="flex items-center gap-2">
@@ -316,23 +368,101 @@ export const Contact = () => {
                   )}
                 </div>
 
-                {/* Project Type Select */}
-                <div>
+                {/* Custom Glassmorphism Service Selection Dropdown */}
+                <div className="relative z-30" ref={dropdownRef}>
                   <label className="block font-mono text-xs uppercase tracking-wider text-cream-muted mb-2">
-                    Pipeline Architecture / Task Category
+                    Project Domain // Select Scope
                   </label>
-                  <select
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-[#03060e] border border-white/10 text-cream-50 font-sans text-sm focus:outline-none focus:border-[#fbbf24] focus:ring-1 focus:ring-[#fbbf24] transition-all cursor-pointer"
+
+                  {/* Hidden form input for submission */}
+                  <input type="hidden" name="projectType" value={formData.projectType} />
+
+                  {/* Dropdown Trigger */}
+                  <button
+                    id="service-domain-trigger-btn"
+                    type="button"
+                    onClick={() => setDropdownOpen((prev) => !prev)}
+                    className={`w-full px-4 py-3 rounded-xl bg-[#03060e] border text-left flex items-center justify-between transition-all cursor-pointer ${
+                      dropdownOpen
+                        ? 'border-[#fbbf24] shadow-[0_0_20px_rgba(245,158,11,0.2)] ring-1 ring-[#fbbf24]'
+                        : 'border-white/10 hover:border-white/25 hover:bg-[#060b17]'
+                    }`}
+                    aria-haspopup="listbox"
+                    aria-expanded={dropdownOpen}
                   >
-                    {projectTypes.map((pt, idx) => (
-                      <option key={idx} value={pt} className="bg-[#070c18] text-cream-100">
-                        {pt}
-                      </option>
-                    ))}
-                  </select>
+                    <div className="flex items-center gap-3">
+                      <span className={`w-2.5 h-2.5 rounded-full ${selectedOption.dotColor}`} />
+                      <div>
+                        <span className="font-sans font-medium text-sm text-cream-50 block leading-tight">
+                          {selectedOption.title}
+                        </span>
+                        <span className="font-mono text-[11px] text-cream-muted block leading-tight mt-0.5">
+                          {selectedOption.desc}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#fbbf24] uppercase hidden sm:inline-block">
+                        {selectedOption.badgeText}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-cream-muted transition-transform duration-300 ${
+                          dropdownOpen ? 'rotate-180 text-[#fbbf24]' : ''
+                        }`}
+                      />
+                    </div>
+                  </button>
+
+                  {/* Custom Glassmorphism Dropdown Menu */}
+                  {dropdownOpen && (
+                    <div
+                      className="absolute z-50 left-0 right-0 mt-2 rounded-2xl bg-[#070c18] border border-white/15 backdrop-blur-xl p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.95)] space-y-1"
+                      role="listbox"
+                    >
+                      {serviceOptions.map((opt) => {
+                        const isSelected = formData.projectType === opt.value;
+                        return (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => {
+                              setFormData({ ...formData, projectType: opt.value });
+                              setDropdownOpen(false);
+                            }}
+                            className={`w-full p-3 rounded-xl flex items-center justify-between text-left transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-[#0e172a] border border-[#fbbf24]/40 text-cream-50 shadow-sm'
+                                : 'hover:bg-white/5 text-slate-300 hover:text-white border border-transparent'
+                            }`}
+                            role="option"
+                            aria-selected={isSelected}
+                          >
+                            <div className="flex items-center gap-3">
+                              <span className={`w-2 h-2 rounded-full ${opt.dotColor}`} />
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <span className="font-sans font-semibold text-sm">
+                                    {opt.title}
+                                  </span>
+                                  <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-cream-muted">
+                                    {opt.badgeText}
+                                  </span>
+                                </div>
+                                <p className="font-mono text-[11px] text-cream-muted mt-0.5">
+                                  {opt.desc}
+                                </p>
+                              </div>
+                            </div>
+
+                            {isSelected && (
+                              <Check className="w-4 h-4 text-[#fbbf24] shrink-0" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
 
                 {/* Message Field with faint terminal prompt styling */}
@@ -361,8 +491,8 @@ export const Contact = () => {
                   )}
                 </div>
 
-                {/* Submit Button & Direct Mailto Fallback */}
-                <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+                {/* Submit Button */}
+                <div className="pt-2 flex items-center justify-start">
                   <Magnetic strength={0.25}>
                     <button
                       type="submit"
@@ -382,13 +512,6 @@ export const Contact = () => {
                       )}
                     </button>
                   </Magnetic>
-
-                  <a
-                    href="mailto:contact@hamzashabbir.dev?subject=Project%20Inquiry%20via%20Portfolio&body=Hi%20Hamza,%0D%0A%0D%0AI%20would%20like%20to%20discuss%20a%20task..."
-                    className="font-mono text-xs text-cream-muted hover:text-[#fbbf24] underline underline-offset-4 transition-colors"
-                  >
-                    Open in default mail client
-                  </a>
                 </div>
               </form>
             )}

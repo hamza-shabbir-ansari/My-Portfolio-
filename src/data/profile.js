@@ -1,5 +1,5 @@
 export const profileData = {
-  name: "Hamza",
+  name: "Hamza Shabbir",
   role: "AI Engineer & Full-Stack Developer",
   tagline: "Architecting autonomous agents and resilient web applications.",
   location: "Karachi, Pakistan",
@@ -89,10 +89,15 @@ export const profileData = {
     }
   ],
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
-    email: "contact@hamzashabbir.dev"
+    github: "https://github.com/hamza-shabbir-ansari",
+    linkedin: "https://www.linkedin.com/in/hamzashabbiransari/",
+    email: "dev.hamzaansari@gmail.com",
+    facebook: "https://www.facebook.com/hamzashabbiransari/",
+    instagram: "https://www.instagram.com/hamza_shabbir_ansari/",
+    phone: "03192922864",
+    phoneDisplay: "+92 319 2922864",
+    whatsapp: "https://wa.me/923192922864?text=Hi%20Hamza%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you%20regarding%20a%20project!",
+    twitter: "https://twitter.com"
   }
 };
 
