@@ -21,19 +21,16 @@ export const AgentLabel = ({
         el,
         {
           opacity: 0,
-          y: 30,
-          scale: 0.95,
+          y: 16,
         },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 0.8,
+          duration: 0.5,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 85%',
-            toggleActions: 'play reverse play reverse',
+            start: 'top 90%',
           },
         }
       );
@@ -45,33 +42,30 @@ export const AgentLabel = ({
   return (
     <div
       ref={labelRef}
-      className={`inline-flex flex-col items-start gap-1 p-3.5 sm:p-4 rounded-2xl bg-[#0a101d]/90 backdrop-blur-md border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5),0_0_20px_rgba(245,158,11,0.1)] ${className}`}
+      className={`inline-flex items-center gap-2 sm:gap-2.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#0a101d]/85 backdrop-blur-md border border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.35),0_0_12px_rgba(245,158,11,0.06)] max-w-full ${className}`}
     >
-      <div className="flex items-center gap-2.5 w-full">
-        {/* Status indicator dot */}
-        <span className="flex h-2.5 w-2.5 relative">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fbbf24] opacity-75" />
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#f59e0b]" />
-        </span>
-        <span className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-[#fbbf24] uppercase">
-          {agent}
-        </span>
-        <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-emerald-950/60 border border-emerald-500/30 text-emerald-400">
-          {status}
-        </span>
-      </div>
+      {/* Status indicator dot */}
+      <span className="flex h-2 w-2 relative shrink-0">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fbbf24] opacity-75" />
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#f59e0b]" />
+      </span>
 
-      <div className="mt-1 flex items-baseline gap-3">
-        <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl tracking-wider text-cream-50 uppercase leading-none">
-          {name}
-        </h2>
-      </div>
+      {/* Agent Key */}
+      <span className="font-mono text-[10px] sm:text-xs font-semibold tracking-wider text-[#fbbf24] uppercase shrink-0">
+        {agent}
+      </span>
 
-      {subtitle && (
-        <p className="text-xs sm:text-sm text-cream-muted font-sans font-light tracking-wide mt-0.5">
-          {subtitle}
-        </p>
-      )}
+      <span className="text-white/20 text-[10px] sm:text-xs font-mono shrink-0">/</span>
+
+      {/* Step Name */}
+      <span className="font-mono text-[10px] sm:text-xs font-medium tracking-wide text-cream-100 uppercase truncate">
+        {name}
+      </span>
+
+      {/* Status Badge */}
+      <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono uppercase tracking-wider bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 shrink-0">
+        {status}
+      </span>
     </div>
   );
 };

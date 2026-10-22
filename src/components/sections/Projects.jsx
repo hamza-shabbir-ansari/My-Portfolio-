@@ -27,7 +27,7 @@ export const Projects = () => {
   return (
     <section id="projects" className="section-spacing section-container pt-16 pb-24">
       {/* Agent Header */}
-      <div className="mb-12">
+      <div className="mb-6">
         <AgentLabel
           agent={projectsStep.agentKey || 'AGENT 02'}
           name={projectsStep.name}
@@ -40,13 +40,13 @@ export const Projects = () => {
       <div className="mb-16 max-w-3xl">
         <div className="inline-flex items-center gap-2 font-mono text-xs text-[#fbbf24] uppercase tracking-widest mb-3">
           <Terminal className="w-3.5 h-3.5 text-[#14b8a6]" />
-          <span>Production Engineering Pipeline</span>
+          <span>Engineering Pipeline</span>
         </div>
         <h2 className="font-h1-fluid text-cream-50 uppercase tracking-tight leading-none mb-4">
-          Architected Systems &amp; Autonomous Agents
+          Selected Projects
         </h2>
         <p className="font-body-lg text-cream-muted leading-relaxed">
-          Four selected builds spanning autonomous LangGraph state orchestrators, hybrid enterprise RAG search engines, and real-time telemetry backends.
+          Four selected projects built with AI agents, automation and full-stack software.
         </p>
       </div>
 

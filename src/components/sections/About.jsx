@@ -5,22 +5,20 @@ import { pipelineData, memoryNodesData } from '../../data/timeline';
 import { AgentLabel } from '../agents/AgentLabel';
 import { useReducedMotion } from '../../hooks/useReducedMotion';
 import {
-  Cpu,
   Layers,
-  Workflow,
   MapPin,
   Calendar,
   Sparkles,
   CheckCircle2,
   Network,
   Terminal,
-  Activity,
   Zap,
   ShieldCheck,
   Database,
   Bot,
   GitBranch,
-  Code2
+  Cpu,
+  Workflow
 } from 'lucide-react';
 
 export const About = () => {
@@ -39,7 +37,6 @@ export const About = () => {
   );
 
   // State for interactive Agent Core HUD
-  const [activeHudTab, setActiveHudTab] = useState('pipeline');
   const [activeDagStep, setActiveDagStep] = useState(1);
 
   // Gentle auto-cycle through DAG steps to display live orchestration
@@ -53,99 +50,31 @@ export const About = () => {
   const dagSteps = [
     {
       num: '01',
-      title: 'Context & Vector Recall',
-      tech: 'ChromaDB // Semantic RAG',
-      desc: 'Retrieves relevant memory embeddings, documents and state history with sub-30ms latency.',
-      badge: 'CONTEXT INGESTION',
+      title: 'Architecture & System Design',
+      tech: 'Blueprint',
+      desc: 'Mapping business logic, data models, and agent workflows.',
       icon: Database,
     },
     {
       num: '02',
-      title: 'LangGraph Orchestrator',
-      tech: 'StateGraph // Multi-Agent',
-      desc: 'Stateful supervisor routes execution across specialist agents with cyclic feedback loops.',
-      badge: 'ACTIVE SUPERVISOR',
+      title: 'Autonomous Agent Engineering',
+      tech: 'LangGraph & LLMs',
+      desc: 'Building multi-agent state machines and reasoning loops.',
       icon: Bot,
     },
     {
       num: '03',
-      title: 'Async Tool Execution',
-      tech: 'FastAPI // Async Workers',
-      desc: 'Non-blocking tool calling, external API integrations, and database state mutations.',
-      badge: 'TOOL RUNTIME',
+      title: 'Backend, APIs & Automation',
+      tech: 'Python & FastAPI',
+      desc: 'Developing scalable endpoints, databases, and tool bridges.',
       icon: Zap,
     },
     {
       num: '04',
-      title: 'Validated Output & UI',
-      tech: 'Pydantic // Next.js & React',
-      desc: 'Schema-validated deterministic payload streamed to reactive frontend components.',
-      badge: 'PRODUCTION READY',
+      title: 'Frontend & Production Delivery',
+      tech: 'React & Next.js',
+      desc: 'Shipping fast, responsive interfaces tested in production.',
       icon: ShieldCheck,
-    },
-  ];
-
-  const architectureSpecs = [
-    {
-      category: 'Orchestration Core',
-      spec: 'LangGraph, CrewAI, LangChain, Anthropic & OpenAI APIs',
-      highlight: 'Cyclic Multi-Agent Workflows',
-    },
-    {
-      category: 'Backend & High-Throughput',
-      spec: 'FastAPI (Python 3.12 uvloop), Node.js, Express, REST & WebSockets',
-      highlight: 'Asynchronous Microservices',
-    },
-    {
-      category: 'Vector Memory & Stores',
-      spec: 'ChromaDB, Redis State Checkpoints, PostgreSQL, SQLite',
-      highlight: 'Sub-40ms Embedding Retrieval',
-    },
-    {
-      category: 'Design Philosophy',
-      spec: 'Clean Architecture, Hexagonal / Ports & Adapters, Domain-Driven Design',
-      highlight: 'Zero Coupling & High Testability',
-    },
-    {
-      category: 'Frontend & Cinematic UX',
-      spec: 'React 18, Next.js, GSAP 3, Tailwind CSS, Lenis Smooth Scroll',
-      highlight: '60fps GPU-Accelerated UI',
-    },
-    {
-      category: 'Infrastructure & Ops',
-      spec: 'Docker Containerization, Git CI/CD, Netlify & Cloud Run',
-      highlight: 'Production Battle-Tested',
-    },
-  ];
-
-  const telemetryMetrics = [
-    {
-      label: 'Agent Determinism Rate',
-      value: '99.2%',
-      metric: 'Validated JSON Schemas & Pydantic',
-      bar: '99%',
-      color: 'from-[#f59e0b] to-[#fbbf24]',
-    },
-    {
-      label: 'Tool Routing Accuracy',
-      value: '98.6%',
-      metric: 'Multi-Turn Benchmark Score',
-      bar: '98%',
-      color: 'from-[#14b8a6] to-[#2dd4bf]',
-    },
-    {
-      label: 'API Pipeline Throughput',
-      value: '~18ms',
-      metric: 'FastAPI Async Execution (uvloop)',
-      bar: '95%',
-      color: 'from-[#fbbf24] to-[#14b8a6]',
-    },
-    {
-      label: 'State Recovery & Checkpointing',
-      value: '99.9%',
-      metric: 'Graph Memory Persistence',
-      bar: '99%',
-      color: 'from-[#2dd4bf] to-cyan-400',
     },
   ];
 
@@ -376,7 +305,7 @@ export const About = () => {
       className="section-spacing section-container overflow-hidden pt-16 pb-24"
     >
       {/* Agent Header */}
-      <div className="mb-12">
+      <div className="mb-6">
         <AgentLabel
           agent={aboutStep.agentKey || 'AGENT 01'}
           name={aboutStep.name}
@@ -386,22 +315,32 @@ export const About = () => {
       </div>
 
       {/* Recruiter Quick Scan Row */}
+      {/* Quick Facts Row */}
       <div
         ref={quickFactsRef}
-        className="mb-16 grid grid-cols-2 md:grid-cols-5 gap-3 sm:gap-4"
+        className="mb-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4"
       >
         {profileData.quickFacts.map((fact, idx) => (
           <div
             key={`fact-${idx}`}
-            className={`quick-fact-card p-3.5 sm:p-4 rounded-xl bg-[#070c18]/80 border border-white/10 hover:border-[#fbbf24]/40 transition-colors backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1 ${
-              idx === 4 ? 'col-span-2 md:col-span-1' : ''
-            }`}
+            className="quick-fact-card p-3.5 sm:p-4 rounded-xl bg-[#070c18]/80 border border-white/10 hover:border-[#fbbf24]/40 transition-colors backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1"
           >
             <span className="font-mono text-[10px] uppercase tracking-wider text-[#fbbf24] block mb-1">
               {fact.label}
             </span>
             <span className="font-sans font-medium text-xs sm:text-sm text-cream-50 leading-snug block">
-              {fact.value}
+              {fact.label === "Company" && profileData.deploi3Url ? (
+                <a
+                  href={profileData.deploi3Url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#fbbf24] transition-colors underline"
+                >
+                  {fact.value}
+                </a>
+              ) : (
+                fact.value
+              )}
             </span>
           </div>
         ))}
@@ -418,7 +357,7 @@ export const About = () => {
             </div>
 
             <h2 className="font-h2-fluid text-cream-50 uppercase tracking-tight leading-tight mb-6">
-              From Clean Architecture Roots to Autonomous Intelligence
+              Background and Trajectory
             </h2>
 
             <div
@@ -427,9 +366,9 @@ export const About = () => {
             >
               {words.map((word, wIdx) => {
                 const cleanWord = word.replace(/[.,]/g, '').toLowerCase();
-                const isHighlightAmber = ['langgraph', 'crewai', 'autonomous', 'multi-agent'].includes(cleanWord);
-                const isHighlightTeal = ['fastapi', 'node', 'backends'].includes(cleanWord);
-                const isHighlightWhite = ['clean', 'architecture', 'architectures', 'cinematic'].includes(cleanWord);
+                const isHighlightAmber = ['deploi3', 'autonomous', 'agents', 'freelancer'].includes(cleanWord);
+                const isHighlightTeal = ['ai', 'automation', 'software', 'web'].includes(cleanWord);
+                const isHighlightWhite = ['karachi', 'pakistan', 'company'].includes(cleanWord);
 
                 let colorClass = 'text-slate-300';
                 if (isHighlightAmber) colorClass = 'text-[#fbbf24] font-semibold';
@@ -447,55 +386,40 @@ export const About = () => {
               })}
             </div>
 
-            {/* Engineering Philosophy Pillars */}
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="p-3.5 sm:p-4 rounded-xl bg-[#070c18]/90 border border-white/10 hover:border-[#fbbf24]/40 transition-colors">
-                <div className="flex items-center gap-2 font-mono text-xs text-[#fbbf24] mb-1.5">
-                  <Bot className="w-4 h-4 text-[#f59e0b]" />
-                  <span className="font-semibold uppercase tracking-wider">Autonomous Systems</span>
-                </div>
-                <p className="font-sans text-xs text-slate-400 leading-relaxed">
-                  Building deterministic multi-agent graphs with LangGraph, persistent state channels, and self-correcting tool loops.
-                </p>
-              </div>
-
-              <div className="p-3.5 sm:p-4 rounded-xl bg-[#070c18]/90 border border-white/10 hover:border-[#14b8a6]/40 transition-colors">
-                <div className="flex items-center gap-2 font-mono text-xs text-[#2dd4bf] mb-1.5">
-                  <Layers className="w-4 h-4 text-[#14b8a6]" />
-                  <span className="font-semibold uppercase tracking-wider">Clean Architecture</span>
-                </div>
-                <p className="font-sans text-xs text-slate-400 leading-relaxed">
-                  Enterprise hexagonal design decoupling business logic, making systems highly testable, resilient, and ready to scale.
-                </p>
-              </div>
-            </div>
-
-            {/* Core Metrics Badge Banner */}
-            <div className="mt-6 flex flex-wrap items-center gap-2.5 sm:gap-3">
-              <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#070c18] border border-[#f59e0b]/30 font-mono text-[11px] sm:text-xs text-[#fbbf24] hover:border-[#f59e0b] transition-colors">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#f59e0b]" />
-                <span>LangGraph Multi-Agent Workflows</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#070c18] border border-[#14b8a6]/30 font-mono text-[11px] sm:text-xs text-[#2dd4bf] hover:border-[#14b8a6] transition-colors">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#14b8a6]" />
-                <span>Full-Stack FastAPI &amp; Next.js</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#070c18] border border-white/10 font-mono text-[11px] sm:text-xs text-slate-300 hover:border-white/30 transition-colors">
-                <CheckCircle2 className="w-3.5 h-3.5 text-amber-400" />
-                <span>Production Startup Founder MVP</span>
+            {/* Compact What I do Strip */}
+            <div className="mt-8">
+              <span className="font-mono text-xs text-[#fbbf24] uppercase tracking-widest block mb-3">
+                What I do
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {profileData.whatIDo?.map((item, idx) => (
+                  <div
+                    key={`what-i-do-${idx}`}
+                    className="p-3.5 rounded-xl bg-[#070c18]/90 border border-white/10 hover:border-[#fbbf24]/40 transition-colors"
+                  >
+                    <div className="flex items-center gap-2 font-mono text-xs text-[#fbbf24] mb-1">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#14b8a6]" />
+                      <span className="font-semibold uppercase tracking-wider">{item.title}</span>
+                    </div>
+                    <p className="font-sans text-xs text-slate-300 leading-relaxed">
+                      {item.line}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
+
           </div>
         </div>
 
-        {/* Right: Autonomous Agent Architecture & Telemetry Terminal */}
+        {/* Right: Autonomous Agent Pipeline DAG Terminal */}
         <div ref={hudRef} className="lg:col-span-5 flex flex-col w-full">
           <div className="relative rounded-2xl bg-[#070c18]/90 border border-white/10 backdrop-blur-md shadow-[0_20px_50px_rgba(0,0,0,0.7),0_0_35px_rgba(245,158,11,0.08)] overflow-hidden transition-all duration-300 hover:border-[#fbbf24]/30">
             {/* Glowing Top Accent Line */}
             <div className="h-1 w-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6]" />
 
             {/* Terminal Header */}
-            <div className="px-4 py-3 border-b border-white/10 bg-[#03060e]/90 flex items-center justify-between">
+            <div className="px-4 py-3 border-b border-white/10 bg-[#03060e]/95 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
@@ -503,226 +427,85 @@ export const About = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
                 </div>
                 <span className="font-mono text-[11px] sm:text-xs text-cream-50 uppercase tracking-wider font-semibold ml-2">
-                  AGENT_CORE // RUNTIME_HUD
+                  DEVELOPMENT_PIPELINE // WORKFLOW
                 </span>
               </div>
 
               <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 font-mono text-[10px] text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>ONLINE</span>
+                <span>ACTIVE</span>
               </div>
             </div>
 
-            {/* Interactive Tab Switcher */}
-            <div className="p-2 sm:p-2.5 bg-[#050914] border-b border-white/10 grid grid-cols-3 gap-1 sm:gap-1.5">
-              <button
-                type="button"
-                onClick={() => setActiveHudTab('pipeline')}
-                className={`px-2 py-1.5 rounded-lg font-mono text-[10px] sm:text-xs transition-all flex items-center justify-center gap-1 sm:gap-1.5 ${
-                  activeHudTab === 'pipeline'
-                    ? 'bg-gradient-to-r from-[#f59e0b]/20 to-[#14b8a6]/20 border border-[#fbbf24]/40 text-[#fbbf24] shadow-[0_0_12px_rgba(245,158,11,0.2)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'
-                }`}
-              >
-                <Workflow className="w-3 h-3" />
-                <span className="truncate">Pipeline DAG</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveHudTab('specs')}
-                className={`px-2 py-1.5 rounded-lg font-mono text-[10px] sm:text-xs transition-all flex items-center justify-center gap-1 sm:gap-1.5 ${
-                  activeHudTab === 'specs'
-                    ? 'bg-gradient-to-r from-[#f59e0b]/20 to-[#14b8a6]/20 border border-[#fbbf24]/40 text-[#fbbf24] shadow-[0_0_12px_rgba(245,158,11,0.2)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'
-                }`}
-              >
-                <Cpu className="w-3 h-3" />
-                <span className="truncate">Core Specs</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setActiveHudTab('telemetry')}
-                className={`px-2 py-1.5 rounded-lg font-mono text-[10px] sm:text-xs transition-all flex items-center justify-center gap-1 sm:gap-1.5 ${
-                  activeHudTab === 'telemetry'
-                    ? 'bg-gradient-to-r from-[#f59e0b]/20 to-[#14b8a6]/20 border border-[#fbbf24]/40 text-[#fbbf24] shadow-[0_0_12px_rgba(245,158,11,0.2)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/5 border border-transparent'
-                }`}
-              >
-                <Activity className="w-3 h-3" />
-                <span className="truncate">Telemetry</span>
-              </button>
+            {/* Subhead status bar */}
+            <div className="px-4 py-2 bg-[#050914] border-b border-white/5 flex items-center justify-between font-mono text-[10px]">
+              <span className="text-[#fbbf24] flex items-center gap-1.5 uppercase tracking-wider font-medium">
+                <GitBranch className="w-3 h-3 text-[#14b8a6]" />
+                <span>End-to-End Engineering Workflow</span>
+              </span>
+              <span className="text-slate-400 uppercase tracking-wider text-[9px]">
+                Continuous Delivery
+              </span>
             </div>
 
-            {/* Tab Body Content */}
-            <div className="p-3.5 sm:p-5 min-h-[350px] flex flex-col justify-between">
-              {/* 1. PIPELINE DAG TAB */}
-              {activeHudTab === 'pipeline' && (
-                <div className="space-y-2.5 sm:space-y-3">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-mono text-[10px] uppercase text-[#fbbf24] tracking-widest flex items-center gap-1.5">
-                      <GitBranch className="w-3 h-3" />
-                      <span>LangGraph State Graph Execution</span>
-                    </span>
-                    <span className="font-mono text-[10px] text-slate-400">
-                      Live Loop: Auto-Sync
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    {dagSteps.map((step, sIdx) => {
-                      const StepIcon = step.icon;
-                      const isCurrent = activeDagStep === sIdx;
-                      return (
+            {/* 4 Interactive DAG Steps */}
+            <div className="p-3 sm:p-4 space-y-2">
+              {dagSteps.map((step, sIdx) => {
+                const isCurrent = activeDagStep === sIdx;
+                return (
+                  <div
+                    key={`dag-${step.num}`}
+                    onClick={() => setActiveDagStep(sIdx)}
+                    className={`p-2.5 sm:p-3 rounded-xl border transition-all cursor-pointer ${
+                      isCurrent
+                        ? 'bg-gradient-to-r from-[#0d1627] to-[#0a1f26] border-[#fbbf24]/50 shadow-[0_0_16px_rgba(245,158,11,0.12)] scale-[1.01]'
+                        : 'bg-[#03060e]/50 border-white/5 hover:border-white/15 opacity-80 hover:opacity-100'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <div className="flex items-center gap-2">
                         <div
-                          key={`dag-${step.num}`}
-                          onClick={() => setActiveDagStep(sIdx)}
-                          className={`p-2.5 sm:p-3 rounded-xl border transition-all cursor-pointer ${
+                          className={`w-5 h-5 rounded-md flex items-center justify-center font-mono text-[10px] font-bold ${
                             isCurrent
-                              ? 'bg-gradient-to-r from-[#0d1627] to-[#0a1f26] border-[#fbbf24]/50 shadow-[0_0_20px_rgba(245,158,11,0.15)] scale-[1.01]'
-                              : 'bg-[#03060e]/60 border-white/5 hover:border-white/15 opacity-75 hover:opacity-100'
+                              ? 'bg-[#fbbf24] text-[#020409]'
+                              : 'bg-white/5 text-slate-400 border border-white/10'
                           }`}
                         >
-                          <div className="flex items-center justify-between gap-2 mb-1">
-                            <div className="flex items-center gap-2">
-                              <div
-                                className={`w-5 h-5 sm:w-6 sm:h-6 rounded-lg flex items-center justify-center font-mono text-[10px] font-bold ${
-                                  isCurrent
-                                    ? 'bg-[#fbbf24] text-[#020409]'
-                                    : 'bg-white/5 text-slate-400 border border-white/10'
-                                }`}
-                              >
-                                {step.num}
-                              </div>
-                              <span className="font-mono text-xs font-semibold text-cream-50">
-                                {step.title}
-                              </span>
-                            </div>
-
-                            <span
-                              className={`font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded border ${
-                                isCurrent
-                                  ? 'bg-[#fbbf24]/10 border-[#fbbf24]/40 text-[#fbbf24]'
-                                  : 'bg-white/5 border-white/10 text-slate-400'
-                              }`}
-                            >
-                              {step.badge}
-                            </span>
-                          </div>
-
-                          <p className="font-sans text-[11px] text-slate-400 pl-7 sm:pl-8 leading-snug">
-                            {step.desc}
-                          </p>
-
-                          <div className="pl-7 sm:pl-8 mt-1.5 flex items-center gap-2">
-                            <span className="font-mono text-[10px] text-[#2dd4bf]">
-                              {step.tech}
-                            </span>
-                            {isCurrent && (
-                              <span className="inline-flex items-center gap-1 font-mono text-[9px] text-emerald-400">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                                RUNNING
-                              </span>
-                            )}
-                          </div>
+                          {step.num}
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* 2. ARCHITECTURE SPECS TAB */}
-              {activeHudTab === 'specs' && (
-                <div className="space-y-2.5">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-mono text-[10px] uppercase text-[#2dd4bf] tracking-widest flex items-center gap-1.5">
-                      <Code2 className="w-3 h-3" />
-                      <span>Full-Stack &amp; AI Framework Stack</span>
-                    </span>
-                    <span className="font-mono text-[10px] text-slate-400">
-                      Verified Production Stack
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {architectureSpecs.map((spec, sIdx) => (
-                      <div
-                        key={`spec-${sIdx}`}
-                        className="p-2.5 sm:p-3 rounded-xl bg-[#03060e]/80 border border-white/5 hover:border-white/15 transition-colors"
-                      >
-                        <div className="font-mono text-[10px] uppercase tracking-wider text-[#fbbf24] mb-1">
-                          {spec.category}
-                        </div>
-                        <div className="font-sans text-xs text-cream-50 font-medium mb-1 leading-snug">
-                          {spec.spec}
-                        </div>
-                        <div className="font-mono text-[10px] text-[#2dd4bf]">
-                          ✦ {spec.highlight}
-                        </div>
+                        <span className="font-mono text-xs font-semibold text-cream-50">
+                          {step.title}
+                        </span>
                       </div>
-                    ))}
+
+                      <span className="font-mono text-[10px] text-[#2dd4bf]">
+                        {step.tech}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center justify-between pl-7 text-[11px] font-sans text-slate-400 leading-snug">
+                      <p>{step.desc}</p>
+                      {isCurrent && (
+                        <span className="inline-flex items-center gap-1 font-mono text-[9px] text-emerald-400 shrink-0 ml-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          RUNNING
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
+                );
+              })}
+            </div>
 
-              {/* 3. LIVE TELEMETRY TAB */}
-              {activeHudTab === 'telemetry' && (
-                <div className="space-y-3.5 sm:space-y-4">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="font-mono text-[10px] uppercase text-[#fbbf24] tracking-widest flex items-center gap-1.5">
-                      <Activity className="w-3 h-3 text-[#fbbf24]" />
-                      <span>Autonomous System Health &amp; Benchmarks</span>
-                    </span>
-                    <span className="font-mono text-[10px] text-emerald-400 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      HEALTHY
-                    </span>
-                  </div>
-
-                  <div className="space-y-3">
-                    {telemetryMetrics.map((item, mIdx) => (
-                      <div
-                        key={`metric-${mIdx}`}
-                        className="p-2.5 sm:p-3 rounded-xl bg-[#03060e]/80 border border-white/5"
-                      >
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="font-sans text-xs text-slate-300 font-medium">
-                            {item.label}
-                          </span>
-                          <span className="font-mono text-xs font-bold text-cream-50">
-                            {item.value}
-                          </span>
-                        </div>
-
-                        {/* Meter Progress Bar */}
-                        <div className="h-1.5 sm:h-2 w-full rounded-full bg-white/5 overflow-hidden mb-1.5">
-                          <div
-                            className={`h-full rounded-full bg-gradient-to-r ${item.color} transition-all duration-1000`}
-                            style={{ width: item.bar }}
-                          />
-                        </div>
-
-                        <div className="font-mono text-[10px] text-slate-400">
-                          {item.metric}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Terminal Footer Strip */}
-              <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between font-mono text-[10px] text-slate-400">
-                <span className="flex items-center gap-1.5">
-                  <Terminal className="w-3 h-3 text-[#fbbf24]" />
-                  <span>HAMZA_AI // UTC+5</span>
-                </span>
-                <span className="text-[#2dd4bf] font-semibold">
-                  DISPATCH_READY
-                </span>
-              </div>
+            {/* Terminal Footer Console Bar */}
+            <div className="px-4 py-2.5 bg-[#02050c] border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-slate-400">
+              <span className="flex items-center gap-1.5">
+                <Terminal className="w-3 h-3 text-[#fbbf24]" />
+                <span>PIPELINE_STATUS: COMPILED</span>
+              </span>
+              <span className="text-[#2dd4bf] font-medium tracking-wider">
+                READY TO SHIP
+              </span>
             </div>
           </div>
         </div>
@@ -809,9 +592,9 @@ export const About = () => {
           aria-hidden="true"
         />
 
-        {/* Multi-layer Dark Vignette & Gradient Overlays for Readability and Seamless Blending */}
+        {/* Refined Dark Vignette & Gradient Overlays: Clearer and More Visible Image */}
         <div
-          className="absolute inset-0 -z-10 bg-[#050811]/70 backdrop-blur-[2px]"
+          className="absolute inset-0 -z-10 bg-[#050811]/35"
           aria-hidden="true"
         />
         <div
@@ -819,7 +602,7 @@ export const About = () => {
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-[#050811]/60 via-transparent to-[#050811]/60"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-[#050811]/35 via-transparent to-[#050811]/35"
           aria-hidden="true"
         />
 
@@ -829,10 +612,10 @@ export const About = () => {
             <span>Neural Memory Path</span>
           </div>
           <h3 className="font-h2-fluid text-cream-50 uppercase tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-            System Timeline &amp; Memory Nodes
+            System Timeline
           </h3>
           <p className="font-sans text-sm sm:text-base text-slate-200 mt-2 max-w-xl mx-auto font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-            Evolution from software engineering fundamentals to autonomous multi-agent pipelines and startup MVP.
+            Milestones from foundational studies to freelance systems and founding Deploi3.
           </p>
         </div>
 

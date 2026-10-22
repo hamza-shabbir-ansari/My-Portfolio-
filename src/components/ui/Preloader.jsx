@@ -57,12 +57,15 @@ export const Preloader = ({ onComplete }) => {
       style={{ zIndex: 99999 }}
       aria-label="Loading site"
     >
-      {/* Ambient background glow behind the loader orb */}
-      <div className="absolute w-[360px] h-[360px] rounded-full bg-gradient-to-tr from-[#fbbf24]/25 via-[#f59e0b]/20 to-[#14b8a6]/10 blur-3xl pointer-events-none" />
+      {/* Subtle ambient background glow behind the loader orb */}
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-gradient-to-tr from-[#fbbf24]/20 via-[#f59e0b]/15 to-[#14b8a6]/10 blur-2xl pointer-events-none" />
 
       {/* Centered Theme Glowing Orb Loader */}
       <div ref={loaderRef} className="relative z-10 flex flex-col items-center justify-center">
         <AiLoader />
+        <span className="font-mono text-[10px] tracking-[0.25em] text-[#fbbf24]/80 uppercase mt-4 animate-pulse">
+          Initializing
+        </span>
       </div>
     </div>
   );

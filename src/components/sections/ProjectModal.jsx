@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from '../../lib/gsap';
 import { useLenis } from '../../hooks/useLenis';
 import { 
@@ -14,9 +15,24 @@ import {
 export const ProjectModal = ({ project, isOpen, onClose }) => {
   const modalOverlayRef = useRef(null);
   const modalContentRef = useRef(null);
+  const scrollBodyRef = useRef(null);
   const videoRef = useRef(null);
   const [videoError, setVideoError] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { lenis } = useLenis();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Dispatch global event when modal opens/closes so bottom navbar can smoothly hide/show
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent('portfolio:modal-change', {
+        detail: { isOpen: Boolean(isOpen) },
+      })
+    );
+  }, [isOpen]);
 
   // Handle ESC key and focus trap
   useEffect(() => {
@@ -42,24 +58,30 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
     if (isOpen) {
       if (lenis) lenis.stop();
       document.body.style.overflow = 'hidden';
+      document.body.classList.add('project-modal-open');
 
       setVideoError(false);
+
+      // Reset scroll position to top when opened
+      if (scrollBodyRef.current) {
+        scrollBodyRef.current.scrollTop = 0;
+      }
 
       const ctx = gsap.context(() => {
         gsap.to(overlay, {
           autoAlpha: 1,
-          duration: 0.35,
+          duration: 0.3,
           ease: 'power2.out',
         });
 
         gsap.fromTo(
           content,
-          { y: 40, scale: 0.95, opacity: 0 },
+          { y: 35, scale: 0.96, opacity: 0 },
           {
             y: 0,
             scale: 1,
             opacity: 1,
-            duration: 0.45,
+            duration: 0.4,
             ease: 'power3.out',
             delay: 0.05,
           }
@@ -70,19 +92,26 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
     } else {
       if (lenis) lenis.start();
       document.body.style.overflow = '';
+      document.body.classList.remove('project-modal-open');
+
+      if (videoRef.current) {
+        try {
+          videoRef.current.pause();
+        } catch (_) {}
+      }
 
       const ctx = gsap.context(() => {
         gsap.to(content, {
-          y: 30,
+          y: 25,
           scale: 0.96,
           opacity: 0,
-          duration: 0.3,
+          duration: 0.25,
           ease: 'power3.in',
         });
 
         gsap.to(overlay, {
           autoAlpha: 0,
-          duration: 0.3,
+          duration: 0.25,
           ease: 'power2.in',
         });
       });
@@ -91,28 +120,49 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
     }
   }, [isOpen, lenis]);
 
-  if (!project) return null;
+  if (!project || !mounted || typeof document === 'undefined') return null;
 
   const isFlagship = project.featured;
 
-  return (
+  // Forward wheel scrolling from header/footer/card background to scroll body
+  const handleCardWheel = (e) => {
+    e.stopPropagation();
+    if (scrollBodyRef.current && e.target && !scrollBodyRef.current.contains(e.target)) {
+      scrollBodyRef.current.scrollTop += e.deltaY;
+    }
+  };
+
+  const modalJSX = (
     <div
       ref={modalOverlayRef}
-      className="fixed inset-0 z-50 bg-[#020409]/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 lg:p-10 invisible opacity-0 overflow-y-auto"
+      data-lenis-prevent="true"
+      data-lenis-prevent-wheel="true"
+      data-lenis-prevent-touch="true"
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-6 lg:p-10 invisible opacity-0 select-auto"
       style={{ zIndex: 99999 }}
-      onClick={(e) => {
-        if (e.target === modalOverlayRef.current) onClose();
-      }}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-project-title"
     >
+      {/* Dedicated backdrop scrim - clicking here safely closes modal without interfering with scrollbars */}
+      <div
+        className="absolute inset-0 bg-[#020409]/95 backdrop-blur-xl -z-10 cursor-pointer"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      {/* Modal Dialog Card */}
       <div
         ref={modalContentRef}
-        className="relative w-full max-w-5xl rounded-3xl bg-[#060b17] border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.9)] overflow-hidden my-auto max-h-[92vh] flex flex-col"
+        data-lenis-prevent="true"
+        data-lenis-prevent-wheel="true"
+        data-lenis-prevent-touch="true"
+        onWheel={handleCardWheel}
+        className="relative w-full max-w-5xl rounded-3xl bg-[#060b17] border border-white/10 shadow-[0_25px_70px_rgba(0,0,0,0.95)] overflow-hidden my-auto max-h-[92vh] flex flex-col z-10"
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header Bar */}
-        <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-white/10 bg-[#03060e]/80 backdrop-blur-md sticky top-0 z-20">
+        <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-white/10 bg-[#03060e]/95 backdrop-blur-md sticky top-0 z-20 shrink-0">
           <div className="flex items-center gap-3">
             <span className="w-2.5 h-2.5 rounded-full bg-[#fbbf24] shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
             <span className="font-mono text-xs uppercase tracking-widest text-[#fbbf24] font-semibold">
@@ -129,8 +179,15 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
           </button>
         </div>
 
-        {/* Modal Scrollable Body */}
-        <div className="overflow-y-auto p-6 sm:p-8 space-y-8 flex-1">
+        {/* Modal Scrollable Body with Enhanced Mouse Control */}
+        <div
+          ref={scrollBodyRef}
+          data-lenis-prevent="true"
+          data-lenis-prevent-wheel="true"
+          data-lenis-prevent-touch="true"
+          onWheel={(e) => e.stopPropagation()}
+          className="modal-scroll-area overflow-y-auto p-6 sm:p-8 space-y-8 flex-1 overscroll-contain select-text"
+        >
           {/* Video Showcase Player Slot */}
           <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#03060e] border border-white/10 shadow-2xl">
             {!videoError && project.video ? (
@@ -276,7 +333,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
         </div>
 
         {/* Modal Footer Links */}
-        <div className="flex items-center justify-between px-6 sm:px-8 py-4 border-t border-white/10 bg-[#03060e]/90 sticky bottom-0 z-20">
+        <div className="flex items-center justify-between px-6 sm:px-8 py-4 border-t border-white/10 bg-[#03060e]/95 backdrop-blur-md sticky bottom-0 z-20 shrink-0">
           <div className="font-mono text-xs text-cream-muted">
             Status: <span className="text-[#fbbf24] font-semibold">{project.status}</span>
           </div>
@@ -287,7 +344,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-full bg-[#070c18] border border-white/10 hover:border-[#fbbf24]/40 text-cream-100 font-mono text-xs flex items-center gap-2 transition-colors"
+                className="px-4 py-2 rounded-full bg-[#070c18] border border-white/10 hover:border-[#fbbf24]/40 text-cream-100 font-mono text-xs flex items-center gap-2 transition-colors cursor-pointer"
               >
                 <Github className="w-4 h-4" />
                 <span className="hidden sm:inline">Repository</span>
@@ -298,7 +355,7 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
+                className="px-5 py-2 rounded-full bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#14b8a6] text-[#03060c] font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
                 <span>Live Demo</span>
                 <ExternalLink className="w-3.5 h-3.5" />
@@ -309,6 +366,8 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
       </div>
     </div>
   );
+
+  return createPortal(modalJSX, document.body);
 };
 
 export default ProjectModal;

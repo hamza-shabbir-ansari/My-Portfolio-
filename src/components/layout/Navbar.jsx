@@ -242,7 +242,7 @@ export const Navbar = ({ onVisibilityChange }) => {
 
         <div className="pt-6 border-t border-white/10 flex items-center justify-between">
           <div className="font-mono text-xs text-cream-muted">
-            Karachi, Pakistan • Open for Roles
+            Karachi, Pakistan • Available for new projects
           </div>
           <button
             onClick={() => handleNavClick('contact')}

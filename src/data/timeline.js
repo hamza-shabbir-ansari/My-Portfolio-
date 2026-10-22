@@ -5,8 +5,8 @@ export const pipelineData = [
     agentKey: "SYSTEM / 00",
     agentName: "SYSTEM / 00 - INITIALIZE",
     name: "Initialize",
-    tagline: "System Boot & Core Orchestration",
-    subtext: "Initiating Intelligent Multi-Agent Architecture",
+    tagline: "System Boot and Core Orchestration",
+    subtext: "Initiating Portfolio Architecture",
     navLabel: "Start"
   },
   {
@@ -15,8 +15,8 @@ export const pipelineData = [
     agentKey: "AGENT 01",
     agentName: "AGENT 01 / CONTEXT",
     name: "Context",
-    tagline: "System Memory & Engineering Foundations",
-    subtext: "Foundations, Background & Engineering Philosophy",
+    tagline: "Background and Experience",
+    subtext: "Foundations, Trajectory and Technical Stack",
     navLabel: "About"
   },
   {
@@ -25,8 +25,8 @@ export const pipelineData = [
     agentKey: "AGENT 02",
     agentName: "AGENT 02 / BUILD",
     name: "Build",
-    tagline: "Execution Track & Active Deployments",
-    subtext: "Flagship Startup MVP & Core Engineering Builds",
+    tagline: "Selected Project Builds",
+    subtext: "Flagship Startup MVP and Software Deployments",
     navLabel: "Projects"
   },
   {
@@ -35,8 +35,8 @@ export const pipelineData = [
     agentKey: "AGENT 03",
     agentName: "AGENT 03 / KNOWLEDGE",
     name: "Knowledge",
-    tagline: "Verified Benchmarks & Credentials",
-    subtext: "Validated Technical Honors & Diplomas",
+    tagline: "Verified Accreditations",
+    subtext: "Technical Certifications and Validated Courses",
     navLabel: "Certificates"
   },
   {
@@ -45,8 +45,8 @@ export const pipelineData = [
     agentKey: "AGENT 04",
     agentName: "AGENT 04 / FEEDBACK",
     name: "Feedback",
-    tagline: "System Logs & Collaborator Reports",
-    subtext: "Performance Metrics & Collaborator Evaluations",
+    tagline: "Feedback and Reports",
+    subtext: "Client and Collaborator Reviews",
     navLabel: "Testimonials"
   },
   {
@@ -55,8 +55,8 @@ export const pipelineData = [
     agentKey: "AGENT 05",
     agentName: "AGENT 05 / DEPLOY",
     name: "Deploy",
-    tagline: "Task Queue & Intake Channel",
-    subtext: "Dispatch a Project Specification or Role Inquiry",
+    tagline: "Task Intake Channel",
+    subtext: "Send a Project Specification or Message",
     navLabel: "Contact"
   },
   {
@@ -65,8 +65,8 @@ export const pipelineData = [
     agentKey: "TERMINAL",
     agentName: "MISSION COMPLETE",
     name: "Complete",
-    tagline: "Orchestration Pipeline Settled",
-    subtext: "Pipeline execution complete. Full reverse traversal enabled.",
+    tagline: "Pipeline Execution Complete",
+    subtext: "All pipeline stages reviewed.",
     navLabel: "End"
   }
 ];
@@ -74,57 +74,66 @@ export const pipelineData = [
 export const memoryNodesData = [
   {
     nodeNumber: "01",
-    nodeTitle: "Software Foundations",
-    title: "Started in Software Development",
+    nodeTitle: "Agency and Startup",
+    title: "Founder and CEO, Deploi3",
     location: "Karachi, Pakistan",
-    period: "Early Steps",
-    description: "Built initial programming fundamentals with logic, data structures, and hands-on code craft in the tech hub of Karachi.",
-    tag: "Foundation"
+    period: "Now",
+    description: "Leading Deploi3 to deliver AI agents, workflow automation and custom software for business clients.",
+    tag: "Deploi3"
   },
   {
     nodeNumber: "02",
-    nodeTitle: "Engineering Academy",
-    title: "Software Engineering Diploma at Aptech",
-    location: "Aptech Computer Education",
-    period: "Diploma Completed",
-    description: "Rigorous curriculum spanning OOP, relational databases, systems engineering, and scalable web application architectures.",
-    tag: "Engineering"
+    nodeTitle: "Agentic Systems",
+    title: "Agentic AI Development",
+    location: "Saylani Mass IT Training (SMIT)",
+    period: "Sep 2025 to May 2026",
+    description: "Mastered multi-agent system design, LangGraph state graphs, and autonomous workflow orchestration.",
+    tag: "SMIT"
   },
   {
     nodeNumber: "03",
-    nodeTitle: "Academic Degree",
-    title: "Bachelor Studies at Virtual University",
-    location: "Virtual University of Pakistan",
-    period: "In Progress",
-    description: "Pursuing degree in Computer Science, deepening theoretical knowledge in algorithms, distributed compute, and modern software paradigms.",
-    tag: "Academics"
+    nodeTitle: "AI Support Bot",
+    title: "AI Customer Support Chatbot",
+    location: "Freelance",
+    period: "May 2025 to Jul 2025",
+    description: "Developed OpenAI and Flask support chatbot with under 2 second responses for 100+ daily queries and 500+ logged records.",
+    tag: "Freelance"
   },
   {
     nodeNumber: "04",
-    nodeTitle: "Neural Architecture",
-    title: "Generative AI & Chatbot Development",
-    location: "Saylani Mass IT Training (SMIT)",
-    period: "Course Completed",
-    description: "Mastered retrieval augmented generation (RAG), vector databases (ChromaDB), token embeddings, and high-performance LLM APIs.",
-    tag: "Generative AI"
+    nodeTitle: "Clinic Management",
+    title: "Clinic Management System",
+    location: "Freelance",
+    period: "Feb 2025 to Mar 2025",
+    description: "Built appointment and patient management with Core PHP and MySQL for 3 doctor schedules handling 50+ daily bookings.",
+    tag: "Freelance"
   },
   {
     nodeNumber: "05",
-    nodeTitle: "Agentic Engineering",
-    title: "Agentic AI Development Course",
-    location: "Saylani Mass IT Training (SMIT)",
-    period: "Course Completed",
-    description: "Engineered multi-agent systems using LangGraph and CrewAI, designing autonomous state graphs, memory loops, and production tool calls.",
-    tag: "Agentic Systems"
+    nodeTitle: "Academic Degree",
+    title: "BS Computer Science",
+    location: "Virtual University of Pakistan",
+    period: "2025 to 2028 (Now)",
+    description: "Pursuing bachelor degree in Computer Science, currently in 4th semester focusing on core algorithms and compute theory.",
+    tag: "Degree"
   },
   {
     nodeNumber: "06",
-    nodeTitle: "Production Deployments",
-    title: "Freelancing & Building AI Products",
-    location: "Global Remote",
-    period: "Active Now",
-    description: "Delivering end-to-end intelligent systems, client automation pipelines, and founding an autonomous multi-agent startup MVP.",
-    tag: "Current Focus"
+    nodeTitle: "Software Engineering",
+    title: "Software Engineering with AI Diploma",
+    location: "Aptech, North Nazimabad",
+    period: "2024 to 2027 (Now)",
+    description: "Studying software engineering fundamentals, database architecture, and applied AI systems.",
+    tag: "Aptech"
+  },
+  {
+    nodeNumber: "07",
+    nodeTitle: "Generative AI",
+    title: "Generative AI and Chatbot Development",
+    location: "Saylani Mass IT Training (SMIT)",
+    period: "Jan 2024 to Jul 2024",
+    description: "Completed intensive training in LLMs, RAG pipelines, vector search and conversational chatbots.",
+    tag: "SMIT"
   }
 ];
 

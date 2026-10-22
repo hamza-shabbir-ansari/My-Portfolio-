@@ -20,7 +20,7 @@ export const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    projectType: 'AI Agents',
+    projectType: 'AI Agent',
     message: '',
     botField: '',
   });
@@ -36,39 +36,39 @@ export const Contact = () => {
 
   const serviceOptions = [
     {
-      value: 'AI Agents',
-      title: 'AI Agents',
-      desc: 'Autonomous multi-agent architectures & stateful workflows',
+      value: 'AI Agent',
+      title: 'AI Agent',
+      desc: 'Autonomous multi-agent workflows and systems',
       dotColor: 'bg-[#14b8a6]',
       badgeText: 'AGENTIC'
     },
     {
-      value: 'Automation',
-      title: 'Automation',
-      desc: 'Event-driven pipelines, API bridges & automated workflows',
+      value: 'AI Automation',
+      title: 'AI Automation',
+      desc: 'Business process pipelines and API integrations',
       dotColor: 'bg-[#f59e0b]',
-      badgeText: 'PIPELINE'
+      badgeText: 'AUTOMATION'
     },
     {
-      value: 'Full Stack',
-      title: 'Full Stack',
-      desc: 'Modern reactive web applications & high-throughput backends',
+      value: 'Full-Stack Web App',
+      title: 'Full-Stack Web App',
+      desc: 'Web applications built with modern frontend and backend',
       dotColor: 'bg-[#2dd4bf]',
-      badgeText: 'SYSTEMS'
+      badgeText: 'FULL-STACK'
     },
     {
-      value: 'Consulting',
-      title: 'Consulting',
-      desc: 'Architecture advisory, system reviews & strategic planning',
+      value: 'Custom Software',
+      title: 'Custom Software',
+      desc: 'Tailored systems and business tools',
       dotColor: 'bg-[#fbbf24]',
-      badgeText: 'ADVISORY'
+      badgeText: 'CUSTOM'
     },
     {
       value: 'Other',
       title: 'Other',
-      desc: 'Custom project scopes, technical inquiries & partnerships',
+      desc: 'General project scopes or technical inquiries',
       dotColor: 'bg-slate-400',
-      badgeText: 'GENERAL'
+      badgeText: 'OTHER'
     }
   ];
 
@@ -87,13 +87,13 @@ export const Contact = () => {
 
   const validate = () => {
     const errs = {};
-    if (!formData.name.trim()) errs.name = 'Name is required';
+    if (!formData.name.trim()) errs.name = 'Please enter your name';
     if (!formData.email.trim()) {
-      errs.email = 'Confirmation email is required';
+      errs.email = 'Please enter your email';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errs.email = 'Please provide a valid email address';
+      errs.email = 'Please enter a valid email address';
     }
-    if (!formData.message.trim()) errs.message = 'Task briefing or message is required';
+    if (!formData.message.trim()) errs.message = 'Please enter your message';
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -137,7 +137,7 @@ export const Contact = () => {
     setFormData({
       name: '',
       email: '',
-      projectType: 'AI Agents',
+      projectType: 'AI Agent',
       message: '',
       botField: '',
     });
@@ -150,7 +150,7 @@ export const Contact = () => {
       className="relative section-spacing section-container overflow-hidden pt-16 pb-24"
     >
       {/* Agent Header */}
-      <div className="mb-10">
+      <div className="mb-6">
         <AgentLabel
           agent={contactStep.agentKey || 'AGENT 05'}
           name={contactStep.name}
@@ -165,7 +165,7 @@ export const Contact = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 font-mono text-xs uppercase tracking-wider mb-4">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              <span>Available for freelance and engineering roles</span>
+              <span>Available for new projects</span>
             </div>
 
             <h2 className="font-display-fluid uppercase tracking-tight leading-[0.95] mb-4">
@@ -174,7 +174,7 @@ export const Contact = () => {
             </h2>
 
             <p className="font-body-lg text-cream-muted leading-relaxed">
-              Have an autonomous multi-agent pipeline to architect, an enterprise RAG system to ship, or a high-impact engineering role? Submit your task specs below.
+              AI agents, automation, web apps or custom software. Tell me what you need.
             </p>
           </div>
 
@@ -283,10 +283,10 @@ export const Contact = () => {
 
                 <div className="max-w-md">
                   <h3 className="font-display text-3xl uppercase text-cream-50 tracking-wider">
-                    Task Received
+                    Task received
                   </h3>
                   <p className="font-sans text-xs sm:text-sm text-cream-muted mt-2 leading-relaxed">
-                    Thank you, {formData.name}. Your specifications have been queued directly into Hamza's terminal. You will receive a response within 24 hours.
+                    Thank you, {formData.name}. I will reply within 24 hours.
                   </p>
                 </div>
 
@@ -294,7 +294,7 @@ export const Contact = () => {
                   onClick={handleReset}
                   className="px-6 py-2.5 rounded-full bg-[#03060e] border border-white/20 text-[#fbbf24] font-mono text-xs uppercase font-semibold hover:bg-gradient-to-r hover:from-[#f59e0b] hover:to-[#14b8a6] hover:text-[#03060c] transition-all cursor-pointer"
                 >
-                  Submit Another Task
+                  Send another message
                 </button>
               </div>
             ) : (
@@ -323,14 +323,14 @@ export const Contact = () => {
                 {/* Name Field */}
                 <div>
                   <label className="block font-mono text-xs uppercase tracking-wider text-cream-muted mb-2">
-                    Client / Stakeholder Name *
+                    Your name *
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Elena Rostova"
+                    placeholder="Your name"
                     className={`w-full px-4 py-3 rounded-xl bg-[#03060e] border text-cream-50 font-sans text-sm focus:outline-none focus:ring-1 transition-all ${
                       errors.name
                         ? 'border-rose-500 focus:border-rose-500 focus:ring-rose-500'
@@ -347,14 +347,14 @@ export const Contact = () => {
                 {/* Email Field */}
                 <div>
                   <label className="block font-mono text-xs uppercase tracking-wider text-cream-muted mb-2">
-                    Direct Confirmation Email *
+                    Your email *
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="elena@company.com"
+                    placeholder="name@example.com"
                     className={`w-full px-4 py-3 rounded-xl bg-[#03060e] border text-cream-50 font-sans text-sm focus:outline-none focus:ring-1 transition-all ${
                       errors.email
                         ? 'border-rose-500 focus:border-rose-500 focus:ring-rose-500'
@@ -371,7 +371,7 @@ export const Contact = () => {
                 {/* Custom Glassmorphism Service Selection Dropdown */}
                 <div className="relative z-30" ref={dropdownRef}>
                   <label className="block font-mono text-xs uppercase tracking-wider text-cream-muted mb-2">
-                    Project Domain // Select Scope
+                    Project type *
                   </label>
 
                   {/* Hidden form input for submission */}
@@ -417,7 +417,10 @@ export const Contact = () => {
                   {/* Custom Glassmorphism Dropdown Menu */}
                   {dropdownOpen && (
                     <div
-                      className="absolute z-50 left-0 right-0 mt-2 rounded-2xl bg-[#070c18] border border-white/15 backdrop-blur-xl p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.95)] space-y-1"
+                      data-lenis-prevent="true"
+                      data-lenis-prevent-wheel="true"
+                      data-lenis-prevent-touch="true"
+                      className="absolute z-50 left-0 right-0 mt-2 max-h-64 sm:max-h-72 overflow-y-auto modal-scroll-area rounded-2xl bg-[#070c18] border border-white/15 backdrop-blur-xl p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.95),0_0_25px_rgba(245,158,11,0.15)] space-y-1 overscroll-contain"
                       role="listbox"
                     >
                       {serviceOptions.map((opt) => {
@@ -430,7 +433,7 @@ export const Contact = () => {
                               setFormData({ ...formData, projectType: opt.value });
                               setDropdownOpen(false);
                             }}
-                            className={`w-full p-3 rounded-xl flex items-center justify-between text-left transition-all cursor-pointer ${
+                            className={`w-full p-2.5 sm:p-3 rounded-xl flex items-center justify-between text-left transition-all cursor-pointer ${
                               isSelected
                                 ? 'bg-[#0e172a] border border-[#fbbf24]/40 text-cream-50 shadow-sm'
                                 : 'hover:bg-white/5 text-slate-300 hover:text-white border border-transparent'
@@ -438,18 +441,18 @@ export const Contact = () => {
                             role="option"
                             aria-selected={isSelected}
                           >
-                            <div className="flex items-center gap-3">
-                              <span className={`w-2 h-2 rounded-full ${opt.dotColor}`} />
-                              <div>
+                            <div className="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-2">
+                              <span className={`w-2 h-2 rounded-full shrink-0 ${opt.dotColor}`} />
+                              <div className="min-w-0">
                                 <div className="flex items-center gap-2">
-                                  <span className="font-sans font-semibold text-sm">
+                                  <span className="font-sans font-semibold text-xs sm:text-sm">
                                     {opt.title}
                                   </span>
-                                  <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-cream-muted">
+                                  <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-cream-muted uppercase shrink-0">
                                     {opt.badgeText}
                                   </span>
                                 </div>
-                                <p className="font-mono text-[11px] text-cream-muted mt-0.5">
+                                <p className="font-mono text-[10px] sm:text-[11px] text-cream-muted mt-0.5 truncate">
                                   {opt.desc}
                                 </p>
                               </div>
@@ -465,10 +468,10 @@ export const Contact = () => {
                   )}
                 </div>
 
-                {/* Message Field with faint terminal prompt styling */}
+                {/* Message Field */}
                 <div>
                   <label className="block font-mono text-xs uppercase tracking-wider text-cream-muted mb-2">
-                    Task Briefing &amp; Scope Requirements *
+                    Your message *
                   </label>
                   <div className="relative">
                     <textarea
@@ -476,7 +479,7 @@ export const Contact = () => {
                       name="message"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Describe the problem, pipeline requirements, and target timeline..."
+                      placeholder="Tell me about your project, timeline and requirements."
                       className={`w-full px-4 py-3 rounded-xl bg-[#03060e] border text-cream-50 font-sans text-sm focus:outline-none focus:ring-1 transition-all resize-none ${
                         errors.message
                           ? 'border-rose-500 focus:border-rose-500 focus:ring-rose-500'
@@ -502,11 +505,11 @@ export const Contact = () => {
                       {isSubmitting ? (
                         <>
                           <span className="w-3.5 h-3.5 rounded-full border-2 border-black border-t-transparent animate-spin" />
-                          <span>Dispatching Task...</span>
+                          <span>Sending...</span>
                         </>
                       ) : (
                         <>
-                          <span>Dispatch Task</span>
+                          <span>Send Message</span>
                           <Send className="w-3.5 h-3.5 stroke-[2.5]" />
                         </>
                       )}

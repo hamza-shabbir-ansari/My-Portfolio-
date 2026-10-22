@@ -100,7 +100,7 @@ export const Testimonials = () => {
       className="relative section-spacing section-container overflow-hidden pt-16 pb-24"
     >
       {/* Agent Header */}
-      <div className="mb-10">
+      <div className="mb-6">
         <AgentLabel
           agent={feedbackStep.agentKey || 'AGENT 04'}
           name={feedbackStep.name}

@@ -1,51 +1,44 @@
 /**
  * ============================================================================
- * PROJECTS DATA & MEDIA DIRECTORY GUIDE
+ * PROJECTS DATA
  * ============================================================================
- * Place real images and video files in the following folders:
+ * Order of projects:
+ * 1. SparkX (Flagship, Startup MVP)
+ * 2. Draftly.AI
+ * 3. NextOra.AI
+ * 4. Riwayat
  * 
- * 1. IMAGES & POSTERS: public/images/
- *    - Project 1 Flagship Cover:  public/images/project-omniflow-cover.svg (or .png / .webp)
- *    - Project 1 Video Poster:    public/images/project-omniflow-poster.svg
- *    - Project 2 Cover & Poster:  public/images/project-cognitive-cover.svg / poster
- *    - Project 3 Cover & Poster:  public/images/project-flowpulse-cover.svg / poster
- *    - Project 4 Cover & Poster:  public/images/project-apex-cover.svg / poster
- * 
- * 2. SHOWCASE VIDEOS: public/videos/
- *    - Project 1 Video: public/videos/project-omniflow.mp4
- *    - Project 2 Video: public/videos/project-cognitive.mp4
- *    - Project 3 Video: public/videos/project-flowpulse.mp4
- *    - Project 4 Video: public/videos/project-apex.mp4
- * 
- * Recommended video format: H.264 MP4, 1080p or 720p, 24-30fps, compressed for web.
- * If a video file is absent, the player gracefully falls back to the cover image.
+ * TODO: Hamza will fill in detailed descriptions, tech stacks, live links,
+ * repo links, problem/solution statements and metrics for each project.
  * ============================================================================
  */
 
 export const projectsData = [
   {
-    id: "omniflow-ai",
+    id: "sparkx",
     featured: true,
-    title: "OmniFlow AI: Autonomous Multi-Agent Workspace",
-    tagline: "Autonomous Agent Orchestrator for Real-Time Enterprise Operations",
-    description: "An orchestration platform designed to replace fragile webhook setups with stateful multi-agent workflows. OmniFlow allows engineering and operations teams to launch autonomous AI teams that write, execute, debug, and monitor complex cross-system pipelines with human review checkpoints.",
+    // Project 1: Flagship Startup MVP
+    title: "SparkX",
+    // TODO: Update tagline, description and project details below
+    tagline: "Autonomous Agent Orchestrator for Real-Time Operations",
+    description: "An orchestration platform designed to replace fragile setups with stateful multi-agent workflows. Teams can launch autonomous AI teams that execute, debug, and monitor complex pipelines.",
     role: "Founder & Lead AI Engineer",
-    tech: ["LangGraph", "CrewAI", "FastAPI", "React", "ChromaDB", "Claude 3.5 Sonnet", "WebSockets", "Docker"],
+    tech: ["LangGraph", "CrewAI", "FastAPI", "React", "ChromaDB", "Claude", "Docker"],
     year: "2025",
-    status: "Private Alpha MVP",
-    liveUrl: "https://example.com/omniflow-live",
-    repoUrl: "https://github.com/example/omniflow-core",
+    status: "Startup MVP",
+    liveUrl: "https://example.com/sparkx",
+    repoUrl: "https://github.com/example/sparkx",
     cover: "/images/project-omniflow-cover.svg",
     poster: "/images/project-omniflow-poster.svg",
     video: "/videos/project-omniflow.mp4",
-    // Special Flagship Attributes
-    problem: "Modern operations suffer from fragmented tool stacks, repetitive manual handoffs, and fragile webhook setups that fail silently when edge conditions arise.",
-    solution: "A self-healing multi-agent control center utilizing LangGraph state machines and CrewAI role-playing agents to plan, inspect, and execute operational workflows with live observability.",
+    // Special Flagship Attributes (TODO: Customize for SparkX)
+    problem: "Modern operations suffer from fragmented tool stacks, repetitive manual handoffs, and fragile setups that fail silently when edge conditions arise.",
+    solution: "A self-healing multi-agent control center using LangGraph state machines and role-playing agents to plan, inspect, and execute operational workflows.",
     highlights: [
-      "Stateful directed acyclic graph (DAG) execution with memory checkpointing",
+      "Stateful directed acyclic graph execution with memory checkpointing",
       "Human in the loop approval gates for high security actions",
       "Real-time WebSocket telemetry with sub-80ms status dispatch",
-      "Dynamic token routing between Anthropic Claude and OpenAI models"
+      "Direct token routing between model providers"
     ],
     metrics: [
       { label: "Execution Speed", value: "3.8x faster" },
@@ -55,51 +48,59 @@ export const projectsData = [
     ]
   },
   {
-    id: "cognitive-query-rag",
+    id: "draftly-ai",
     featured: false,
-    title: "CognitiveQuery: Contextual Enterprise Knowledge RAG",
-    tagline: "Ultra-fast hybrid semantic search across private technical knowledge bases",
-    description: "Enterprise retrieval augmented generation platform that enables engineers and analysts to query dense documentation and internal wikis with verifiable citations and low latency.",
-    role: "AI Engineer",
-    tech: ["Python", "FastAPI", "ChromaDB", "LangChain", "OpenAI API", "React", "Tailwind CSS"],
-    year: "2024",
+    // Project 2: Draftly.AI
+    title: "Draftly.AI",
+    // TODO: Update tagline, description and project details below
+    tagline: "Contextual AI writing and document intelligence system",
+    description: "An AI-powered content and document generation application providing verified citations, tone customization, and rapid drafting workflows.",
+    role: "AI Engineer & Full-Stack Developer",
+    tech: ["Python", "FastAPI", "OpenAI", "React", "Tailwind CSS"],
+    year: "2025",
     status: "Production Ready",
-    liveUrl: "https://example.com/cognitive-query",
-    repoUrl: "https://github.com/example/cognitive-query-rag",
+    liveUrl: "https://example.com/draftly",
+    repoUrl: "https://github.com/example/draftly-ai",
     cover: "/images/project-cognitive-cover.svg",
     poster: "/images/project-cognitive-poster.svg",
     video: "/videos/project-cognitive.mp4"
   },
   {
-    id: "flowpulse-middleware",
+    id: "nextora-ai",
     featured: false,
-    title: "FlowPulse: Event-Driven Automation Middleware",
-    tagline: "Low-latency webhook orchestration integrating n8n, microservices, and queue brokers",
-    description: "Robust automation backbone built to aggregate high-throughput SaaS webhooks, deduplicate events, and route idempotent payloads with zero message drop.",
+    // Project 3: NextOra.AI
+    title: "NextOra.AI",
+    // TODO: Update tagline, description and project details below
+    tagline: "Intelligent workflow automation and conversational agent platform",
+    description: "An event-driven automation middleware aggregating SaaS webhooks, routing payloads and orchestrating multi-step AI tasks.",
     role: "Full-Stack Automation Engineer",
-    tech: ["Node.js", "n8n", "Make.com", "Redis", "TypeScript", "Tailwind CSS", "WebSockets"],
-    year: "2024",
+    tech: ["Node.js", "n8n", "LangChain", "TypeScript", "Tailwind CSS"],
+    year: "2025",
     status: "Deployed to Production",
-    liveUrl: "https://example.com/flowpulse-live",
-    repoUrl: "https://github.com/example/flowpulse-middleware",
+    liveUrl: "https://example.com/nextora",
+    repoUrl: "https://github.com/example/nextora-ai",
     cover: "/images/project-flowpulse-cover.svg",
     poster: "/images/project-flowpulse-poster.svg",
     video: "/videos/project-flowpulse.mp4"
   },
   {
-    id: "apexmetrics-telemetry",
+    id: "riwayat",
     featured: false,
-    title: "ApexMetrics: Real-Time Intelligence & Telemetry Portal",
-    tagline: "High-density dynamic telemetry dashboard with sub-100ms analytics streaming",
-    description: "Executive and operational intelligence application streaming cross-channel transactional volumes, live server metrics, and automated risk scoring.",
+    // Project 4: Riwayat
+    title: "Riwayat",
+    // TODO: Update tagline, description and project details below
+    tagline: "Cultural archive and multimedia digital storytelling platform",
+    description: "A full-stack web platform built for archival preservation, rich cultural narratives and high-performance digital content exploration.",
     role: "Full-Stack Developer",
-    tech: ["Next.js", "Laravel", "PHP", "FastAPI", "Tailwind CSS", "Chart.js", "PostgreSQL"],
+    tech: ["Next.js", "Laravel", "PHP", "PostgreSQL", "Tailwind CSS"],
     year: "2024",
     status: "Client Deployed",
-    liveUrl: "https://example.com/apexmetrics-portal",
-    repoUrl: "https://github.com/example/apexmetrics-telemetry",
+    liveUrl: "https://example.com/riwayat",
+    repoUrl: "https://github.com/example/riwayat",
     cover: "/images/project-apex-cover.svg",
     poster: "/images/project-apex-poster.svg",
     video: "/videos/project-apex.mp4"
   }
 ];
+
+export default projectsData;

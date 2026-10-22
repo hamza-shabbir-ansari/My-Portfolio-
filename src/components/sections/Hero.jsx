@@ -229,19 +229,19 @@ export const Hero = ({ isReady = true }) => {
         aria-hidden="true"
       />
 
-      {/* Giant Background Hero Image extending into next section */}
+      {/* Giant Background Hero Image extending past bottom into next section */}
       <div
         ref={imageContainerRef}
-        className="absolute right-[-6%] sm:right-[-2%] md:right-0 xl:right-[2%] 2xl:right-[5%] top-[6%] sm:top-[4%] lg:top-[2%] z-10 pointer-events-none select-none will-change-transform flex justify-end"
+        className="absolute right-[-4%] sm:right-[-2%] md:right-0 xl:right-[2%] 2xl:right-[4%] top-[6%] sm:top-[5%] lg:top-[4%] z-0 pointer-events-none select-none will-change-transform flex justify-end overflow-visible"
       >
         <div ref={imageParallaxRef} className="relative will-change-transform">
           <img
             src="/images/hero-hamza.png"
-            alt="Hamza - AI Engineer & Full-Stack Developer"
-            className="h-[680px] sm:h-[840px] md:h-[980px] lg:h-[1180px] xl:h-[1300px] 2xl:h-[1420px] w-auto max-w-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] opacity-30 sm:opacity-45 lg:opacity-100"
+            alt="Hamza Shabbir, Agentic AI Engineer and Full-Stack Developer"
+            className="h-[680px] sm:h-[840px] md:h-[980px] lg:h-[1180px] xl:h-[1300px] 2xl:h-[1420px] w-auto max-w-none object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)] opacity-50 sm:opacity-75 lg:opacity-100"
             style={{
-              WebkitMaskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)',
-              maskImage: 'linear-gradient(to bottom, black 86%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
+              maskImage: 'linear-gradient(to bottom, black 88%, transparent 100%)',
             }}
             loading="eager"
             decoding="async"
@@ -315,8 +315,13 @@ export const Hero = ({ isReady = true }) => {
               ref={taglineRef}
               className="font-body-lg text-cream-muted max-w-xl lg:max-w-2xl mt-4 leading-relaxed"
             >
-              {profileData.tagline} {profileData.shortIntro}
+              {profileData.tagline}
             </p>
+            {profileData.trustLine && (
+              <p className="font-mono text-xs text-slate-300 mt-2 tracking-wide">
+                {profileData.trustLine}
+              </p>
+            )}
           </div>
 
           {/* Action Buttons */}

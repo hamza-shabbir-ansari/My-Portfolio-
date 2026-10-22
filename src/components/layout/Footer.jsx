@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect, useEffect } from 'react';
 import { gsap, ScrollTrigger } from '../../lib/gsap';
 import { profileData } from '../../data/profile';
 import { pipelineData } from '../../data/timeline';
@@ -98,6 +98,20 @@ export const Footer = () => {
     return () => ctx.revert();
   }, [reducedMotion]);
 
+  useEffect(() => {
+    console.log(
+      `%c> whoami\n%cHamza Shabbir, builds AI agents.\n%c> company\n%cFounder and CEO of Deploi3.\n%c> experience\n%c3+ years, 5 clients served.\n%c> status\n%cShipping. Always shipping.`,
+      'color: #fbbf24; font-family: monospace; font-size: 12px; font-weight: bold;',
+      'color: #e2e8f0; font-family: monospace; font-size: 11px;',
+      'color: #14b8a6; font-family: monospace; font-size: 12px; font-weight: bold;',
+      'color: #e2e8f0; font-family: monospace; font-size: 11px;',
+      'color: #fbbf24; font-family: monospace; font-size: 12px; font-weight: bold;',
+      'color: #e2e8f0; font-family: monospace; font-size: 11px;',
+      'color: #2dd4bf; font-family: monospace; font-size: 12px; font-weight: bold;',
+      'color: #e2e8f0; font-family: monospace; font-size: 11px;'
+    );
+  }, []);
+
   return (
     <footer
       id="footer"
@@ -134,12 +148,12 @@ export const Footer = () => {
       <div className="my-auto py-8 text-center select-none overflow-hidden relative z-10">
         <h2
           ref={giantNameRef}
-          className="font-display text-[12vw] sm:text-[14vw] uppercase tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-cream-100/30 to-cream-100/5 will-change-transform"
+          className="font-display text-[17.5vw] sm:text-[14vw] uppercase tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-b from-cream-100/60 via-cream-100/35 to-cream-100/10 will-change-transform"
         >
           HAMZA SHABBIR
         </h2>
         <p className="font-mono text-xs sm:text-sm text-[#fbbf24] tracking-widest uppercase mt-3">
-          {profileData.role} • Karachi, Pakistan
+          Agentic AI Engineer and Founder of Deploi3.
         </p>
       </div>
 
@@ -218,7 +232,7 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="font-mono text-xs text-cream-muted text-center md:text-right">
-          <span>© {new Date().getFullYear()} Hamza Shabbir. All rights reserved.</span>
+          <span>© 2026 Hamza Shabbir</span>
         </div>
       </div>
     </footer>
