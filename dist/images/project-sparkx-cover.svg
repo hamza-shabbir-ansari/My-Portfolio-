@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="sparkxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#03060d" />
+      <stop offset="45%" stop-color="#0a1222" />
+      <stop offset="100%" stop-color="#040813" />
+    </linearGradient>
+
+    <radialGradient id="sparkxGold" cx="35%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="sparkxTeal" cx="80%" cy="70%" r="45%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="goldTealBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.6" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d182e" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#070c18" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#sparkxBg)" />
+  <rect width="1200" height="675" fill="url(#sparkxGold)" />
+  <rect width="1200" height="675" fill="url(#sparkxTeal)" />
+
+  <!-- Subtle Blueprint Tech Grid -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135" />
+    <line x1="0" y1="270" x2="1200" y2="270" />
+    <line x1="0" y1="405" x2="1200" y2="405" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+  </g>
+
+  <!-- Top Left Branding & Metadata -->
+  <g transform="translate(70, 65)">
+    <!-- Stage Pill -->
+    <rect width="195" height="32" rx="16" fill="rgba(245, 158, 11, 0.12)" stroke="#f59e0b" stroke-width="1" />
+    <circle cx="18" cy="16" r="4" fill="#fbbf24" />
+    <text x="32" y="21" fill="#fbbf24" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="2">STARTUP MVP RELEASE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="85" fill="#f8fafc" font-family="'Bebas Neue', sans-serif" font-size="62" letter-spacing="3">SPARKX PLATFORM</text>
+    <text x="0" y="118" fill="#94a3b8" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="15" letter-spacing="0.5">AI Storefront Builder · Virtual Model Try-On · Live Catalog Care</text>
+  </g>
+
+  <!-- UI Mockup Stage: Central Workspace Representation -->
+  <g transform="translate(70, 215)">
+    <!-- Main Workspace Container -->
+    <rect width="1060" height="395" rx="16" fill="url(#cardGrad)" stroke="url(#goldTealBorder)" stroke-width="1.2" />
+
+    <!-- Window Control Bar -->
+    <rect width="1060" height="42" rx="16" fill="#060b16" />
+    <rect y="26" width="1060" height="16" fill="#060b16" />
+    <circle cx="25" cy="21" r="5" fill="#ef4444" opacity="0.8" />
+    <circle cx="42" cy="21" r="5" fill="#f59e0b" opacity="0.8" />
+    <circle cx="59" cy="21" r="5" fill="#10b981" opacity="0.8" />
+    
+    <!-- URL / Session Breadcrumb Bar -->
+    <rect x="90" y="10" width="380" height="22" rx="6" fill="rgba(255,255,255,0.05)" />
+    <text x="105" y="25" fill="#64748b" font-family="'Space Grotesk', monospace" font-size="10">https://sparkx.app/builder/editor · [Session: Active Token]</text>
+
+    <!-- Mode Switcher in Titlebar -->
+    <g transform="translate(740, 10)">
+      <rect width="70" height="22" rx="4" fill="rgba(245, 158, 11, 0.2)" stroke="#f59e0b" stroke-width="0.8" />
+      <text x="35" y="15" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700" text-anchor="middle">VISUAL DND</text>
+
+      <rect x="80" width="70" height="22" rx="4" fill="rgba(255,255,255,0.05)" />
+      <text x="115" y="15" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9" text-anchor="middle">AI PROMPT</text>
+
+      <rect x="160" width="60" height="22" rx="4" fill="rgba(255,255,255,0.05)" />
+      <text x="190" y="15" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9" text-anchor="middle">CODE</text>
+    </g>
+
+    <!-- Inner 3 Column Showcase: 1. Drag & Drop Builder, 2. AI Try-On Studio, 3. Live Catalog Bot -->
+    
+    <!-- Col 1: Storefront Canvas & AI Prompting (x: 24, y: 60) -->
+    <g transform="translate(24, 60)">
+      <rect width="320" height="312" rx="10" fill="#050913" stroke="rgba(255,255,255,0.07)" stroke-width="1" />
+      
+      <!-- Subtitle -->
+      <text x="16" y="28" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">01 / STOREFRONT CANVAS</text>
+      
+      <!-- Simulated Header Section Component -->
+      <rect x="16" y="44" width="288" height="60" rx="6" fill="#0a1324" stroke="rgba(255,255,255,0.05)" />
+      <rect x="28" y="58" width="80" height="10" rx="3" fill="#38bdf8" opacity="0.6" />
+      <rect x="28" y="74" width="140" height="6" rx="3" fill="rgba(255,255,255,0.2)" />
+      <rect x="220" y="62" width="68" height="24" rx="4" fill="#f59e0b" opacity="0.85" />
+      
+      <!-- Drag Items Reordering -->
+      <g transform="translate(16, 116)">
+        <rect width="288" height="42" rx="6" fill="#09101f" stroke="rgba(245, 158, 11, 0.4)" stroke-dasharray="4 2" />
+        <circle cx="20" cy="21" r="3" fill="#f59e0b" />
+        <text x="32" y="25" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="600">Featured Apparel Hero Section</text>
+        <text x="245" y="24" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8">DRAG [::]</text>
+      </g>
+
+      <g transform="translate(16, 168)">
+        <rect width="288" height="42" rx="6" fill="#09101f" stroke="rgba(255,255,255,0.05)" />
+        <circle cx="20" cy="21" r="3" fill="#14b8a6" />
+        <text x="32" y="25" fill="#cbd5e1" font-family="'Space Grotesk', sans-serif" font-size="10">Curated Product Grid (4 items)</text>
+      </g>
+
+      <!-- AI Prompt Bar Bottom -->
+      <g transform="translate(16, 230)">
+        <rect width="288" height="62" rx="8" fill="#0c1628" stroke="rgba(20, 184, 166, 0.4)" stroke-width="1" />
+        <text x="12" y="20" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">AI PROMPT GENERATOR</text>
+        <text x="12" y="42" fill="#94a3b8" font-family="'Space Grotesk', monospace" font-size="9">"Add minimalist luxury fashion banner..."</text>
+      </g>
+    </g>
+
+    <!-- Col 2: Virtual Model Try-On Studio (x: 368, y: 60) -->
+    <g transform="translate(368, 60)">
+      <rect width="324" height="312" rx="10" fill="#050913" stroke="rgba(255,255,255,0.07)" stroke-width="1" />
+      
+      <text x="16" y="28" fill="#14b8a6" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">02 / AI VIRTUAL TRY-ON STUDIO</text>
+      
+      <!-- Studio Split: Flat Clothing Upload -> Diffusion -> Generated On-Model Shot -->
+      <g transform="translate(16, 44)">
+        <!-- Flat Garment Card -->
+        <rect width="138" height="175" rx="8" fill="#080e1c" stroke="rgba(255,255,255,0.08)" />
+        <text x="69" y="20" fill="#64748b" font-family="'Space Grotesk', sans-serif" font-size="8" text-anchor="middle">FLAT PRODUCT PHOTO</text>
+        <!-- Garment silhouette icon -->
+        <path d="M 50 48 L 60 58 L 78 58 L 88 48 L 102 62 L 92 78 L 84 74 L 84 135 L 54 135 L 54 74 L 46 78 Z" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" />
+        <rect x="24" y="148" width="90" height="16" rx="4" fill="rgba(56, 189, 248, 0.15)" />
+        <text x="69" y="159" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-size="8" text-anchor="middle">Oversized Tee.png</text>
+
+        <!-- Arrow / Diffusion Transform -->
+        <g transform="translate(142, 75)">
+          <path d="M 2 12 L 12 12 M 8 7 L 13 12 L 8 17" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+
+        <!-- Generated On-Model Shot -->
+        <g transform="translate(156, 0)">
+          <rect width="136" height="175" rx="8" fill="#091426" stroke="#f59e0b" stroke-width="1" />
+          <text x="68" y="20" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700" text-anchor="middle">SYNTHESIZED MODEL</text>
+          
+          <!-- On-Model Illustration -->
+          <circle cx="68" cy="50" r="14" fill="#fde68a" opacity="0.3" stroke="#f59e0b" stroke-width="1" />
+          <path d="M 45 74 Q 68 62 91 74 L 88 135 L 48 135 Z" fill="#0284c7" opacity="0.8" stroke="#38bdf8" stroke-width="1" />
+          
+          <rect x="20" y="148" width="96" height="16" rx="4" fill="rgba(245, 158, 11, 0.25)" />
+          <text x="68" y="159" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700" text-anchor="middle">Realistic Studio Render</text>
+        </g>
+      </g>
+
+      <!-- Diffusion Model Pipeline Info -->
+      <g transform="translate(16, 234)">
+        <rect width="292" height="58" rx="8" fill="#091222" stroke="rgba(255,255,255,0.05)" />
+        <text x="12" y="20" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9">PIPELINE: Kwai Kolors Diffusion · Zero Studio Costs</text>
+        <text x="12" y="38" fill="#2dd4bf" font-family="'Space Grotesk', monospace" font-size="9">Status: SSE Stream Connected · Output: High-Res Fashion</text>
+      </g>
+    </g>
+
+    <!-- Col 3: Live Catalog AI Assistant (x: 716, y: 60) -->
+    <g transform="translate(716, 60)">
+      <rect width="320" height="312" rx="10" fill="#050913" stroke="rgba(255,255,255,0.07)" stroke-width="1" />
+      
+      <text x="16" y="28" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">03 / STORE-AWARE AI CHAT</text>
+
+      <!-- Customer Query -->
+      <g transform="translate(16, 50)">
+        <rect width="240" height="44" rx="8" fill="#0b162b" stroke="rgba(255,255,255,0.08)" />
+        <text x="12" y="18" fill="#64748b" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700">SHOPPER INQUIRY</text>
+        <text x="12" y="33" fill="#cbd5e1" font-family="'Space Grotesk', sans-serif" font-size="9">"Do you have the Oversized Tee in L?"</text>
+      </g>
+
+      <!-- RAG Dynamic Response with Catalog Hook -->
+      <g transform="translate(48, 106)">
+        <rect width="256" height="88" rx="8" fill="#081424" stroke="rgba(20, 184, 166, 0.4)" stroke-width="1" />
+        <g transform="translate(12, 16)">
+          <circle cx="4" cy="4" r="4" fill="#14b8a6" />
+          <text x="14" y="8" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700">SPARKX AI ASSISTANT (LIVE RAG)</text>
+        </g>
+        <text x="12" y="44" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="9.5">"Yes! 4 units in stock in Size L.</text>
+        <text x="12" y="58" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="9.5">Priced at $45. Added to quick checkout."</text>
+        <rect x="12" y="66" width="140" height="14" rx="3" fill="rgba(20,184,166,0.15)" />
+        <text x="16" y="76" fill="#2dd4bf" font-family="'Space Grotesk', monospace" font-size="7.5">Synced with live MySQL inventory</text>
+      </g>
+
+      <!-- Architecture Badge: Multi-model Failover -->
+      <g transform="translate(16, 212)">
+        <rect width="288" height="80" rx="8" fill="#09101d" stroke="rgba(245, 158, 11, 0.2)" />
+        <text x="12" y="22" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">AUTOMATIC MULTI-MODEL FALLBACK</text>
+        <text x="12" y="40" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">Active route: OpenRouter AI Cluster</text>
+        <text x="12" y="56" fill="#64748b" font-family="'Space Grotesk', sans-serif" font-size="8.5">Failover target: Standby Model Hub (Zero Downtime)</text>
+        <circle cx="270" cy="48" r="4" fill="#10b981" />
+      </g>
+    </g>
+  </g>
+</svg>

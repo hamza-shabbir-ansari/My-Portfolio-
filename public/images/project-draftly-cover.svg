@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="draftlyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="50%" stop-color="#071328" />
+      <stop offset="100%" stop-color="#02050e" />
+    </linearGradient>
+
+    <radialGradient id="tealCenter" cx="65%" cy="35%" r="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="amberLeft" cx="25%" cy="65%" r="45%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="pipelineBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.6" />
+    </linearGradient>
+
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b162c" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#050a17" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="675" fill="url(#draftlyBg)" />
+  <rect width="1200" height="675" fill="url(#tealCenter)" />
+  <rect width="1200" height="675" fill="url(#amberLeft)" />
+
+  <!-- Subtle Matrix Grid -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135" />
+    <line x1="0" y1="270" x2="1200" y2="270" />
+    <line x1="0" y1="405" x2="1200" y2="405" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+  </g>
+
+  <!-- Top Left Branding & Metadata -->
+  <g transform="translate(70, 60)">
+    <!-- Stage Badge -->
+    <rect width="215" height="32" rx="16" fill="rgba(20, 184, 166, 0.12)" stroke="#14b8a6" stroke-width="1" />
+    <circle cx="18" cy="16" r="4" fill="#2dd4bf" />
+    <text x="32" y="21" fill="#2dd4bf" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="2">AUTONOMOUS MULTI-AGENT</text>
+
+    <!-- Main Title -->
+    <text x="0" y="85" fill="#f8fafc" font-family="'Bebas Neue', sans-serif" font-size="62" letter-spacing="3">DRAFTLY.AI</text>
+    <text x="0" y="118" fill="#94a3b8" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="15" letter-spacing="0.5">CrewAI Sequential Pipeline · Google Gemini 1.5 · FastAPI · Next.js</text>
+  </g>
+
+  <!-- Main Showcase Container -->
+  <g transform="translate(70, 205)">
+    <rect width="1060" height="405" rx="16" fill="url(#cardBg)" stroke="url(#pipelineBorder)" stroke-width="1.2" />
+
+    <!-- Browser Window Titlebar -->
+    <rect width="1060" height="42" rx="16" fill="#040914" />
+    <rect y="26" width="1060" height="16" fill="#040914" />
+    <circle cx="25" cy="21" r="5" fill="#ef4444" opacity="0.8" />
+    <circle cx="42" cy="21" r="5" fill="#f59e0b" opacity="0.8" />
+    <circle cx="59" cy="21" r="5" fill="#10b981" opacity="0.8" />
+    
+    <rect x="90" y="10" width="360" height="22" rx="6" fill="rgba(255,255,255,0.05)" />
+    <text x="105" y="25" fill="#64748b" font-family="'Space Grotesk', monospace" font-size="10">https://draftly.ai/app · [Pipeline: 3 Agents Active]</text>
+
+    <!-- Pipeline Status Pill in Header -->
+    <g transform="translate(860, 10)">
+      <rect width="160" height="22" rx="4" fill="rgba(20, 184, 166, 0.15)" stroke="#14b8a6" stroke-width="0.8" />
+      <circle cx="15" cy="11" r="3" fill="#2dd4bf" />
+      <text x="26" y="15" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">CREW EXECUTION: 100%</text>
+    </g>
+
+    <!-- Layout: Left (3 Sequential Agents), Right (Generated Output Cards) -->
+
+    <!-- Left Section: 3-Agent Sequential Pipeline (x: 24, y: 58) -->
+    <g transform="translate(24, 58)">
+      <rect width="470" height="324" rx="12" fill="#040813" stroke="rgba(255,255,255,0.06)" />
+      <text x="20" y="28" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">SEQUENTIAL CREW PIPELINE</text>
+
+      <!-- Agent 1: Researcher -->
+      <g transform="translate(20, 46)">
+        <rect width="430" height="72" rx="8" fill="#091224" stroke="rgba(20, 184, 166, 0.4)" stroke-width="1" />
+        <circle cx="28" cy="26" r="12" fill="#0f766e" />
+        <text x="28" y="30" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" text-anchor="middle">01</text>
+        <text x="50" y="24" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">RESEARCHER AGENT</text>
+        <rect x="330" y="14" width="85" height="18" rx="4" fill="rgba(20, 184, 166, 0.2)" />
+        <text x="372" y="26" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="8.5" text-anchor="middle">FACTS EXTRACTED</text>
+        <text x="50" y="44" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9.5">Analyzes topic, extracts industry data &amp; identifies viral hook angles.</text>
+        <text x="50" y="58" fill="#64748b" font-family="'Space Grotesk', monospace" font-size="8.5">Input: "Future of AI Agents" · Model: Gemini 1.5 Flash</text>
+      </g>
+
+      <!-- Connecting Arrow 1 -> 2 -->
+      <g transform="translate(230, 122)">
+        <path d="M 0 0 L 0 10 M -4 6 L 0 10 L 4 6" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Agent 2: Writer -->
+      <g transform="translate(20, 136)">
+        <rect width="430" height="72" rx="8" fill="#091224" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1" />
+        <circle cx="28" cy="26" r="12" fill="#b45309" />
+        <text x="28" y="30" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" text-anchor="middle">02</text>
+        <text x="50" y="24" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">WRITER AGENT</text>
+        <rect x="340" y="14" width="75" height="18" rx="4" fill="rgba(245, 158, 11, 0.2)" />
+        <text x="377" y="26" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8.5" text-anchor="middle">DRAFTED POSTS</text>
+        <text x="50" y="44" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9.5">Generates high-engagement LinkedIn post and 5-part Twitter thread.</text>
+        <text x="50" y="58" fill="#64748b" font-family="'Space Grotesk', monospace" font-size="8.5">Tone Calibration: Professional · Hook Retention: High</text>
+      </g>
+
+      <!-- Connecting Arrow 2 -> 3 -->
+      <g transform="translate(230, 212)">
+        <path d="M 0 0 L 0 10 M -4 6 L 0 10 L 4 6" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Agent 3: Editor -->
+      <g transform="translate(20, 226)">
+        <rect width="430" height="76" rx="8" fill="#091224" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1" />
+        <circle cx="28" cy="26" r="12" fill="#334155" />
+        <text x="28" y="30" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700" text-anchor="middle">03</text>
+        <text x="50" y="24" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">EDITOR &amp; POLISH AGENT</text>
+        <rect x="330" y="14" width="85" height="18" rx="4" fill="rgba(255, 255, 255, 0.1)" />
+        <text x="372" y="26" fill="#e2e8f0" font-family="'Space Grotesk', sans-serif" font-size="8.5" text-anchor="middle">FINAL VALIDATED</text>
+        <text x="50" y="44" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9.5">Verifies 280-char limits, appends 5 relevant hashtags, and cleans syntax.</text>
+        <text x="50" y="58" fill="#64748b" font-family="'Space Grotesk', monospace" font-size="8.5">Output: Validated JSON with 1-Click Clipboard Ready Cards</text>
+      </g>
+    </g>
+
+    <!-- Right Section: Generated Deliverables Preview (x: 518, y: 58) -->
+    <g transform="translate(518, 58)">
+      <rect width="518" height="324" rx="12" fill="#040813" stroke="rgba(255,255,255,0.06)" />
+      
+      <!-- Tab Header -->
+      <g transform="translate(20, 16)">
+        <text x="0" y="14" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">GENERATED PLATFORM CARDS</text>
+        <rect x="360" width="118" height="22" rx="4" fill="#0c1629" stroke="rgba(255,255,255,0.1)" />
+        <text x="419" y="14" fill="#cbd5e1" font-family="'Space Grotesk', sans-serif" font-size="8.5" text-anchor="middle">1-CLICK COPY ACTIVE</text>
+      </g>
+
+      <!-- Card 1: LinkedIn Post -->
+      <g transform="translate(20, 46)">
+        <rect width="478" height="125" rx="8" fill="#091426" stroke="rgba(20, 184, 166, 0.3)" />
+        <rect x="14" y="12" width="70" height="18" rx="4" fill="rgba(10, 102, 194, 0.3)" stroke="#0a66c2" stroke-width="0.8" />
+        <text x="49" y="24" fill="#60a5fa" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">LINKEDIN POST</text>
+        <text x="400" y="24" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="8">Copy Full Post [⧉]</text>
+
+        <!-- Post Preview Lines -->
+        <text x="14" y="48" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="10.5" font-weight="600">The shift from passive LLMs to autonomous agent workflows is here.</text>
+        <text x="14" y="66" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9">Single prompts are brittle. Multi-agent architectures split complex problem</text>
+        <text x="14" y="80" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="9">spaces into specialized roles: Research, Drafting, and Rigorous Editing...</text>
+        <text x="14" y="104" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-size="9">#ArtificialIntelligence #AgenticAI #CrewAI #FastAPI #NextJS</text>
+      </g>
+
+      <!-- Card 2: Twitter Thread Preview -->
+      <g transform="translate(20, 183)">
+        <rect width="478" height="120" rx="8" fill="#091426" stroke="rgba(245, 158, 11, 0.3)" />
+        <rect x="14" y="12" width="85" height="18" rx="4" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="0.8" />
+        <text x="56" y="24" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">TWITTER THREAD</text>
+        <text x="390" y="24" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8">Copy All Tweets [⧉]</text>
+
+        <!-- Tweet 1 Item -->
+        <g transform="translate(14, 42)">
+          <rect width="450" height="30" rx="4" fill="#050a17" />
+          <circle cx="16" cy="15" r="8" fill="#f59e0b" />
+          <text x="16" y="18" fill="#040813" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700" text-anchor="middle">1</text>
+          <text x="32" y="19" fill="#e2e8f0" font-family="'Space Grotesk', sans-serif" font-size="9">1/5 Why single-prompt AI fails for long-form social content: A breakdown 🧵👇</text>
+        </g>
+
+        <!-- Tweet 2 Item -->
+        <g transform="translate(14, 78)">
+          <rect width="450" height="30" rx="4" fill="#050a17" />
+          <circle cx="16" cy="15" r="8" fill="#f59e0b" />
+          <text x="16" y="18" fill="#040813" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700" text-anchor="middle">2</text>
+          <text x="32" y="19" fill="#cbd5e1" font-family="'Space Grotesk', sans-serif" font-size="9">2/5 When one LLM handles research + tone + formatting, cognitive overload ruins quality...</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

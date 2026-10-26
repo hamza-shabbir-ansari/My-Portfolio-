@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nextoraPosterBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020612" />
+      <stop offset="50%" stop-color="#061329" />
+      <stop offset="100%" stop-color="#020815" />
+    </linearGradient>
+    <radialGradient id="cyanCenterPoster" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#nextoraPosterBg)" />
+  <circle cx="600" cy="337" r="300" fill="url(#cyanCenterPoster)" />
+
+  <!-- Center Play Badge -->
+  <circle cx="600" cy="320" r="48" fill="#030814" stroke="#06b6d4" stroke-width="2" />
+  <polygon points="594,306 614,320 594,334" fill="#22d3ee" />
+
+  <!-- Title & Description -->
+  <text x="600" y="420" fill="#f8fafc" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="2">NEXTORA.AI SYSTEM DEMO</text>
+  <text x="600" y="448" fill="#94a3b8" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="13" text-anchor="middle">ML Career Prediction Engine · 177 Curriculum Guides · AI Navigator</text>
+</svg>

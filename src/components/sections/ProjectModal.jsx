@@ -242,27 +242,39 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
             </p>
           </div>
 
-          {/* Detailed Problem / Solution Panels (for Flagship) or Overview Description */}
-          {isFlagship ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl bg-[#03060e]/70 border border-white/10 shadow-inner">
-                <div className="flex items-center gap-2 font-mono text-xs text-[#fbbf24] uppercase tracking-wider mb-2 font-semibold">
-                  <AlertCircle className="w-4 h-4 text-[#f59e0b]" />
-                  <span>The Challenge</span>
+          {/* Detailed Problem / Solution Panels or Overview Description */}
+          {project.problem && project.solution ? (
+            <div className="space-y-6">
+              {project.description && (
+                <div className="p-5 rounded-2xl bg-[#03060e]/50 border border-white/5">
+                  <span className="font-mono text-xs text-[#2dd4bf] uppercase tracking-wider block mb-1.5 font-semibold">
+                    Core Overview
+                  </span>
+                  <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {project.description}
+                  </p>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {project.problem}
-                </p>
-              </div>
+              )}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="p-6 rounded-2xl bg-[#03060e]/70 border border-white/10 shadow-inner">
+                  <div className="flex items-center gap-2 font-mono text-xs text-[#fbbf24] uppercase tracking-wider mb-2 font-semibold">
+                    <AlertCircle className="w-4 h-4 text-[#f59e0b]" />
+                    <span>The Challenge</span>
+                  </div>
+                  <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {project.problem}
+                  </p>
+                </div>
 
-              <div className="p-6 rounded-2xl bg-[#03060e]/70 border border-white/10 shadow-inner">
-                <div className="flex items-center gap-2 font-mono text-xs text-[#2dd4bf] uppercase tracking-wider mb-2 font-semibold">
-                  <Sparkles className="w-4 h-4 text-[#14b8a6]" />
-                  <span>Architected Solution</span>
+                <div className="p-6 rounded-2xl bg-[#03060e]/70 border border-white/10 shadow-inner">
+                  <div className="flex items-center gap-2 font-mono text-xs text-[#2dd4bf] uppercase tracking-wider mb-2 font-semibold">
+                    <Sparkles className="w-4 h-4 text-[#14b8a6]" />
+                    <span>Architected Solution</span>
+                  </div>
+                  <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {project.solution}
+                  </p>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {project.solution}
-                </p>
               </div>
             </div>
           ) : (
@@ -276,27 +288,29 @@ export const ProjectModal = ({ project, isOpen, onClose }) => {
             </div>
           )}
 
-          {/* Flagship Metrics & Key Highlights */}
-          {isFlagship && project.metrics && (
+          {/* Metrics & Key Highlights */}
+          {(project.metrics || project.highlights) && (
             <div>
               <span className="font-mono text-xs text-cream-muted uppercase tracking-widest block mb-3">
-                Key Telemetry &amp; Performance Highlights
+                Key Telemetry &amp; Architecture Highlights
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                {project.metrics.map((m, idx) => (
-                  <div
-                    key={`m-${idx}`}
-                    className="p-4 rounded-xl bg-[#03060e] border border-white/10 text-center"
-                  >
-                    <div className="font-display text-2xl sm:text-3xl text-[#fbbf24]">
-                      {m.value}
+              {project.metrics && (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                  {project.metrics.map((m, idx) => (
+                    <div
+                      key={`m-${idx}`}
+                      className="p-4 rounded-xl bg-[#03060e] border border-white/10 text-center"
+                    >
+                      <div className="font-display text-2xl sm:text-3xl text-[#fbbf24]">
+                        {m.value}
+                      </div>
+                      <div className="font-mono text-[10px] text-cream-muted uppercase mt-1">
+                        {m.label}
+                      </div>
                     </div>
-                    <div className="font-mono text-[10px] text-cream-muted uppercase mt-1">
-                      {m.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
 
               {project.highlights && (
                 <div className="space-y-2">

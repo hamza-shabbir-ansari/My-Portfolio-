@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="riwayatPosterBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04060e" />
+      <stop offset="50%" stop-color="#120e0a" />
+      <stop offset="100%" stop-color="#050711" />
+    </linearGradient>
+    <radialGradient id="goldCenterPoster" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#riwayatPosterBg)" />
+  <circle cx="600" cy="337" r="300" fill="url(#goldCenterPoster)" />
+
+  <!-- Center Play Badge -->
+  <circle cx="600" cy="320" r="48" fill="#090a14" stroke="#fbbf24" stroke-width="2" />
+  <polygon points="594,306 614,320 594,334" fill="#fbbf24" />
+
+  <!-- Title & Description -->
+  <text x="600" y="420" fill="#f8fafc" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="2">RIWAYAT PLATFORM WALKTHROUGH</text>
+  <text x="600" y="448" fill="#94a3b8" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="13" text-anchor="middle">Vintage E-Commerce · Multi-Role Dashboards · Cheque Verification Pipeline</text>
+</svg>

@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="riwayatBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04060e" />
+      <stop offset="50%" stop-color="#120e0a" />
+      <stop offset="100%" stop-color="#050711" />
+    </linearGradient>
+
+    <radialGradient id="vintageGold" cx="30%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="amberWarmth" cx="75%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#d97706" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="goldVintageBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.7" />
+    </linearGradient>
+
+    <linearGradient id="riwayatCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14110d" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#080a14" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="675" fill="url(#riwayatBg)" />
+  <rect width="1200" height="675" fill="url(#vintageGold)" />
+  <rect width="1200" height="675" fill="url(#amberWarmth)" />
+
+  <!-- Subtle Heritage Grid Overlay -->
+  <g stroke="rgba(245, 158, 11, 0.04)" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135" />
+    <line x1="0" y1="270" x2="1200" y2="270" />
+    <line x1="0" y1="405" x2="1200" y2="405" />
+    <line x1="0" y1="540" x2="1200" y2="540" />
+    <line x1="200" y1="0" x2="200" y2="675" />
+    <line x1="400" y1="0" x2="400" y2="675" />
+    <line x1="600" y1="0" x2="600" y2="675" />
+    <line x1="800" y1="0" x2="800" y2="675" />
+    <line x1="1000" y1="0" x2="1000" y2="675" />
+  </g>
+
+  <!-- Top Left Branding & Metadata -->
+  <g transform="translate(70, 60)">
+    <rect width="215" height="32" rx="16" fill="rgba(245, 158, 11, 0.12)" stroke="#f59e0b" stroke-width="1" />
+    <circle cx="18" cy="16" r="4" fill="#fbbf24" />
+    <text x="32" y="21" fill="#fbbf24" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="2">VINTAGE E-COMMERCE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="85" fill="#f8fafc" font-family="'Bebas Neue', sans-serif" font-size="62" letter-spacing="3">RIWAYAT</text>
+    <text x="0" y="118" fill="#94a3b8" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="15" letter-spacing="0.5">Full-Stack Vintage Platform · Multi-Role Portals · Offline Cheque Verification · PHP &amp; MySQL</text>
+  </g>
+
+  <!-- Centerpiece Workspace Showcase -->
+  <g transform="translate(70, 205)">
+    <rect width="1060" height="405" rx="16" fill="url(#riwayatCardGrad)" stroke="url(#goldVintageBorder)" stroke-width="1.2" />
+
+    <!-- Window Chrome -->
+    <rect width="1060" height="42" rx="16" fill="#090a14" />
+    <rect y="26" width="1060" height="16" fill="#090a14" />
+    <circle cx="25" cy="21" r="5" fill="#ef4444" opacity="0.8" />
+    <circle cx="42" cy="21" r="5" fill="#f59e0b" opacity="0.8" />
+    <circle cx="59" cy="21" r="5" fill="#10b981" opacity="0.8" />
+
+    <rect x="90" y="10" width="380" height="22" rx="6" fill="rgba(255,255,255,0.05)" />
+    <text x="105" y="25" fill="#64748b" font-family="'Space Grotesk', monospace" font-size="10">https://riwayat.local/storefront · [PDO Engine: Active Session]</text>
+
+    <!-- Role Badges in Header -->
+    <g transform="translate(750, 10)">
+      <rect width="85" height="22" rx="4" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="0.8" />
+      <text x="42" y="15" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">CUSTOMER</text>
+
+      <rect x="95" width="85" height="22" rx="4" fill="rgba(20, 184, 166, 0.15)" stroke="#14b8a6" stroke-width="0.8" />
+      <text x="137" y="15" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">EMPLOYEE</text>
+
+      <rect x="190" width="70" height="22" rx="4" fill="rgba(255, 255, 255, 0.08)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="0.8" />
+      <text x="225" y="15" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">ADMIN</text>
+    </g>
+
+    <!-- Inner 3 Columns: 1. Vintage Product Catalog, 2. Cheque & Checkout Pipeline, 3. Staff & Admin Dashboards -->
+
+    <!-- Col 1: Vintage Detail Catalog (x: 24, y: 58) -->
+    <g transform="translate(24, 58)">
+      <rect width="320" height="324" rx="10" fill="#08080f" stroke="rgba(255,255,255,0.06)" />
+      <text x="16" y="26" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">01 / DUAL-ANGLE CATALOG</text>
+
+      <!-- Antique Item Showcase Card -->
+      <g transform="translate(16, 42)">
+        <rect width="288" height="180" rx="8" fill="#110e0c" stroke="rgba(245, 158, 11, 0.25)" />
+        
+        <!-- Dual Angle Images Simulation -->
+        <g transform="translate(12, 14)">
+          <rect width="126" height="95" rx="6" fill="#1c1611" stroke="rgba(255,255,255,0.05)" />
+          <circle cx="63" cy="47" r="22" fill="#292019" stroke="#d97706" stroke-width="1.2" />
+          <circle cx="63" cy="47" r="14" fill="#110e0c" stroke="#fbbf24" stroke-width="1" />
+          <text x="63" y="80" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="7.5" text-anchor="middle">FRONT PERSPECTIVE</text>
+        </g>
+
+        <g transform="translate(150, 14)">
+          <rect width="126" height="95" rx="6" fill="#1c1611" stroke="rgba(255,255,255,0.05)" />
+          <rect x="25" y="25" width="76" height="45" rx="4" fill="#292019" stroke="#d97706" stroke-width="1.2" />
+          <text x="63" y="80" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="7.5" text-anchor="middle">REAR DIAL DETAIL</text>
+        </g>
+
+        <!-- Product Specs Label -->
+        <g transform="translate(12, 120)">
+          <text x="0" y="14" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="10.5" font-weight="700">1948 Classic Brass Rotary Clock</text>
+          <text x="0" y="30" fill="#d97706" font-family="'Space Grotesk', sans-serif" font-size="9">Material: Solid Brass · Weight: 2.4kg · Heritage Tier</text>
+          <rect x="200" y="2" width="64" height="20" rx="4" fill="rgba(245, 158, 11, 0.2)" />
+          <text x="232" y="15" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="8.5" font-weight="700" text-anchor="middle">ADD TO CART</text>
+        </g>
+      </g>
+
+      <!-- Persistent MySQL Cart Indicator -->
+      <g transform="translate(16, 238)">
+        <rect width="288" height="70" rx="8" fill="#0d0f18" stroke="rgba(255,255,255,0.06)" />
+        <text x="12" y="22" fill="#e2e8f0" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">PERSISTENT MYSQL CART ENGINE</text>
+        <text x="12" y="38" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">Real-time cart badge counters tied to authenticated</text>
+        <text x="12" y="52" fill="#64748b" font-family="'Space Grotesk', sans-serif" font-size="8.5">sessions with 6-digit OTP account recovery.</text>
+      </g>
+    </g>
+
+    <!-- Col 2: Atomic Checkout & Cheque Verification (x: 368, y: 58) -->
+    <g transform="translate(368, 58)">
+      <rect width="324" height="324" rx="10" fill="#08080f" stroke="rgba(255,255,255,0.06)" />
+      <text x="16" y="26" fill="#14b8a6" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">02 / CHEQUE WORKFLOW</text>
+
+      <!-- Cheque Verification Pipeline Container -->
+      <g transform="translate(16, 42)">
+        <rect width="292" height="175" rx="8" fill="#0c111a" stroke="rgba(20, 184, 166, 0.3)" />
+
+        <!-- Cheque Graphic -->
+        <g transform="translate(14, 14)">
+          <rect width="264" height="85" rx="6" fill="#111c29" stroke="#14b8a6" stroke-width="0.8" />
+          <text x="12" y="20" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="700">BANK CHEQUE ATTACHMENT</text>
+          <text x="200" y="20" fill="#fbbf24" font-family="'Space Grotesk', monospace" font-size="8.5">#CHK-8842</text>
+          
+          <line x1="12" y1="36" x2="180" y2="36" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+          <line x1="12" y1="52" x2="250" y2="52" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+          <text x="12" y="70" fill="#64748b" font-family="'Space Grotesk', monospace" font-size="8">Account Ref: [Verified Scanned Document]</text>
+          <rect x="200" y="58" width="54" height="18" rx="3" fill="rgba(20, 184, 166, 0.2)" />
+          <text x="227" y="70" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="7.5" text-anchor="middle">PENDING</text>
+        </g>
+
+        <!-- Atomic PDO Transaction Badge -->
+        <g transform="translate(14, 110)">
+          <text x="0" y="14" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="9.5" font-weight="700">ATOMIC CHECKOUT TRANSACTION</text>
+          <text x="0" y="28" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">Order creation, file upload, stock reservation &amp; cart clear</text>
+          <text x="0" y="42" fill="#2dd4bf" font-family="'Space Grotesk', monospace" font-size="8">Wrapped in PDO Transaction: Zero Orphan Records</text>
+        </g>
+      </g>
+
+      <!-- Composite Order ID Tracker -->
+      <g transform="translate(16, 234)">
+        <rect width="292" height="74" rx="8" fill="#0d0f18" stroke="rgba(255,255,255,0.06)" />
+        <text x="12" y="20" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">COMPOSITE ORDER TRACKING FORMAT</text>
+        <rect x="12" y="30" width="220" height="22" rx="4" fill="#141c2c" />
+        <text x="20" y="45" fill="#38bdf8" font-family="'Space Grotesk', monospace" font-size="9">ORD-VNTG-EXP-82910471</text>
+        <text x="12" y="64" fill="#64748b" font-family="'Space Grotesk', sans-serif" font-size="8">Encodes: [Item Category] · [Delivery Speed] · [Hash ID]</text>
+      </g>
+    </g>
+
+    <!-- Col 3: Staff & Admin Operations (x: 716, y: 58) -->
+    <g transform="translate(716, 58)">
+      <rect width="320" height="324" rx="10" fill="#08080f" stroke="rgba(255,255,255,0.06)" />
+      <text x="16" y="26" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" letter-spacing="1">03 / BACK-OFFICE OPERATIONS</text>
+
+      <!-- Role Isolation Cards -->
+      <g transform="translate(16, 42)">
+        <!-- Employee Portal -->
+        <rect width="288" height="66" rx="6" fill="#0e1422" stroke="rgba(20, 184, 166, 0.25)" />
+        <circle cx="20" cy="22" r="8" fill="#0f766e" />
+        <text x="36" y="20" fill="#2dd4bf" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Employee Processing Portal</text>
+        <text x="36" y="36" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">Order stage updates (Packed ➔ Dispatched)</text>
+        <text x="36" y="50" fill="#64748b" font-family="'Space Grotesk', sans-serif" font-size="8">Customer return tickets &amp; inquiry resolution</text>
+      </g>
+
+      <g transform="translate(16, 118)">
+        <!-- Admin Dashboard -->
+        <rect width="288" height="74" rx="6" fill="#14100c" stroke="rgba(245, 158, 11, 0.3)" />
+        <circle cx="20" cy="22" r="8" fill="#b45309" />
+        <text x="36" y="20" fill="#fbbf24" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">Admin Control Center</text>
+        <text x="36" y="36" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">Revenue KPIs, Cheque verification, Staff accounts</text>
+        <rect x="36" y="44" width="160" height="18" rx="3" fill="rgba(245, 158, 11, 0.15)" />
+        <text x="42" y="56" fill="#fbbf24" font-family="'Space Grotesk', monospace" font-size="7.5">Low-Stock Visual Alert Thresholds</text>
+      </g>
+
+      <!-- Architecture Summary Pill -->
+      <g transform="translate(16, 206)">
+        <rect width="288" height="102" rx="8" fill="#0a0c16" stroke="rgba(255,255,255,0.06)" />
+        <text x="12" y="20" fill="#f8fafc" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">STANDALONE FULL-STACK ARCHITECTURE</text>
+        <text x="12" y="38" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">Native PHP 8.2 with PDO prepared statements,</text>
+        <text x="12" y="52" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">InnoDB relational foreign key constraints,</text>
+        <text x="12" y="66" fill="#94a3b8" font-family="'Space Grotesk', sans-serif" font-size="8.5">and zero external backend runtime dependencies.</text>
+        <rect x="12" y="76" width="140" height="16" rx="3" fill="rgba(245,158,11,0.15)" />
+        <text x="82" y="88" fill="#fbbf24" font-family="'Space Grotesk', monospace" font-size="7.5" text-anchor="middle">Robust Production Logic</text>
+      </g>
+    </g>
+  </g>
+</svg>
